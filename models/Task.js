@@ -25,12 +25,14 @@ Task.init(
         validate: {
             isIn: [['NSW', 'VIC', 'QLD', 'TAS', 'ACT', 'NT', 'SA', 'WA']],
         },
+        }, // Add a closing parenthesis here
         task_season: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
         validate: {
             isIn: [['Summer', 'Autumn', 'Winter', 'Spring']],
         },
+        }, // Add a closing parenthesis here
     },
     {
         sequelize,
@@ -39,5 +41,6 @@ Task.init(
         underscored: true,
         modelName: 'task',
     }
+);
 
 module.exports = Task;
