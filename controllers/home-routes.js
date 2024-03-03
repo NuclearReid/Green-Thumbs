@@ -1,7 +1,7 @@
 const router = require('express').Router();
 // const {blogPost, Comment, User} = require('../models');
 // const withAuth = require('../utils/auth');
-
+ 
 router.get('/', (req, res) =>{
     try {
         res.render('landing');

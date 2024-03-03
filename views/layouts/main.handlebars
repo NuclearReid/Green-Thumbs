@@ -1,31 +1,20 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Green Thumbs</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <style type="text/tailwindcss">
-      @layer utilities {
-        .content-auto {
-          content-visibility: auto;
-        }
-      }
+    <script
+      src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"
+    ></script>
+    <style>
+      body { background-color: rgba(241, 229, 207, 0.432); }
     </style>
     <script>
-      tailwind.config = {
-        plugins: [require("@tailwindcss/forms")],
-      };
+      tailwind.config = { plugins: [require("@tailwindcss/forms")], };
     </script>
   </head>
   <body>
-     {{{ body }}}
-    <!--
-  When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars
-
-  Open: "fixed inset-0 z-40 overflow-y-auto", Closed: ""
--->
- 
+    {{{body}}}
   </body>
 </html>
