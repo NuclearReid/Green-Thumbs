@@ -16,13 +16,22 @@ router.get('/login', (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-})
+});
+
 
 router.get('/signup', (req, res) => {
     try {
         res.render('signup');
     } catch (error) {
         res.status(500).json(error);
+    }
+});
+
+router.get('/profile', (req, res) => {
+    try {
+        res.render('profile')
+    } catch (error) {
+        res.status(500).json(error)
     }
 })
 
