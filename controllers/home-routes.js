@@ -69,6 +69,12 @@ router.get('/warm', (req, res) => {
         res.status(500).json(error);
     }
 });
-
+router.get('/addPlant', (req, res) => {
+    try {
+        res.render('addPlant');
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
 
 module.exports = router;
