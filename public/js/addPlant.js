@@ -1,42 +1,57 @@
 const newPlantFormHandler = async (event) => {
-  event.preventDefault();
-  const plantName = document.querySelector("#plantName-input");
-  const plantDescription = document.querySelector("#plantDescription-input");
-  const plantType = document.querySelector("#plantType");
+    event.preventDefault();
+    console.log('start of the form');
 
+    const plantName = document.querySelector("#plantName-input").value;
+    const plantDescription = document.querySelector("#plantDescription-input").value;
 
-  // this should be good to return each of the plant type boxes checked
-  const plantCheckboxes = document.querySelectorAll('.check-plantType');
-    const typeSelectedValues = [];
-    plantCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                typeSelectedValues.push(this.value);
-            } else {
-                const index = typeSelectedValues.indexOf(this.value);
-                if (index !== -1) {
-                    typeSelectedValues.splice(index, 1);
-                }
-            }
-            console.log(typeSelectedValues); // You can use the selectedValues array as needed
-        });
+    const plantTypeCheckboxes = document.querySelectorAll('.check-plantType');
+    const checkedPlantTypes = Array.from(plantTypeCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const plantLocationCheckboxes = document.querySelectorAll('.check-plantLocation');
+    const checkedPlantLocations = Array.from(plantLocationCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const plantSeasonCheckboxes = document.querySelectorAll('.check-plantSeason');
+    const checkedPlantSeasons = Array.from(plantSeasonCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    console.log(`The plant name: ${plantName}`);
+    console.log(`The plant description: ${plantDescription}`);
+    console.log(`The checked plant types are: ${checkedPlantTypes}`);
+    console.log(`The checked plant locations are: ${checkedPlantLocations}`);
+    console.log(`The checked plant seasons are: ${checkedPlantSeasons}`);
+
+    const response = await fetch("/api/plant/newPlant", {
+        method: 'POST',
+        body: JSON.stringify({ plantName, plantDescription, plantType: checkedPlantTypes, plantLocation: checkedPlantLocations, plantSeason: checkedPlantSeasons }),
+        headers: {
+            'Content-Type': 'application/json'
+        },
     });
 
-
+    if (response.ok) {
+        document.location.replace('/profile');
+    }
 };
 
 document
-  .querySelector("newPlant")
-  .addEventListener("submit", newPlantFormHandler);
+    .querySelector(".newPlant")
+    .addEventListener("submit", newPlantFormHandler);
 
 
-  function getCheckboxValue() {
-    var checkbox = document.getElementById('myCheckbox');
 
-    if (checkbox.checked) {
-        var checkboxValue = checkbox.value;
-        console.log('Checkbox value: ' + checkboxValue);
-    } else {
-        console.log('Checkbox is not checked');
-    }
-}
+
+
+
+
+
+
+
+
+
+  

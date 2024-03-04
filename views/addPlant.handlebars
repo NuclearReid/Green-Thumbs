@@ -12,7 +12,7 @@
 
 
     <header>Type of plant</header>
-    <div id="plantType">
+    <div id="plantType-checkbox">
         <div class="form-check form-check-inline">
             <input class="form-check-input check-plantType" type="checkbox" id="fruit-checkbox" value="Fruit">
             <label class="form-check-label" for="inlineCheckbox1">Fruit</label>
@@ -37,57 +37,57 @@
 
 
     <header>State</header>
-    <div id="state">
+    <div id="state-checkbox">
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="vic-checkbox" value="VIC">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="vic-checkbox" value="VIC">
             <label class="form-check-label" for="inlineCheckbox1">VIC</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="nsw-checkbox" value="NSW">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="nsw-checkbox" value="NSW">
             <label class="form-check-label" for="inlineCheckbox2">NSW</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="qld-checkbox" value="QLD">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="qld-checkbox" value="QLD">
             <label class="form-check-label" for="inlineCheckbox3">QLD</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="sa-checkbox" value="SA">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="sa-checkbox" value="SA">
             <label class="form-check-label" for="inlineCheckbox2">SA</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="wa-checkbox" value="WA">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="wa-checkbox" value="WA">
             <label class="form-check-label" for="inlineCheckbox3">WA</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="tas-checkbox" value="TAS">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="tas-checkbox" value="TAS">
             <label class="form-check-label" for="inlineCheckbox3">TAS</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="act-checkbox" value="ACT">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="act-checkbox" value="ACT">
             <label class="form-check-label" for="inlineCheckbox3">ACT</label>
         </div>
     </div>
 
     <header>Select a season</header>
-    <div id="season">
+    <div id="season-checkbox">
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="spring-checkbox" value="Spring">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="spring-checkbox" value="Spring">
             <label class="form-check-label" for="inlineCheckboxSpring">Spring</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="summer-checkbox" value="Summer">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="summer-checkbox" value="Summer">
             <label class="form-check-label" for="inlineCheckboxSummer">Summer</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="fall-checkbox" value="Fall">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="fall-checkbox" value="Fall">
             <label class="form-check-label" for="inlineCheckboxFall">Fall</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="winter-checkbox" value="Winter">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="winter-checkbox" value="Winter">
             <label class="form-check-label" for="inlineCheckboxWinter">Winter</label>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Add Plant!</button>
+    <button id="submitbtn" type="submit" class="btn btn-primary">Add Plant!</button>
 </form>
 </section> --}}
 
@@ -415,4 +415,5 @@
       </div>
     </div>
 </section>
-<script src="./public/js/addPlant.js"></script>
+
+<script src="./js/addPlant.js"></script>

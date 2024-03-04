@@ -1,7 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Plant extends Model {}
+class Plant extends Model {
+
+}
 
 Plant.init(
     {
@@ -11,29 +13,29 @@ Plant.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        plant_name: {
+        plantName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        plant_type: {
+        plantType: {
             type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
             validate: {
                 isIn: [['Fruit', 'Vegetable', 'Herb', 'Flower', 'Tree']],
             },
         },
-        plant_description: {
+        plantDescription: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        plant_season: {
+        plantSeason: {
             type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
             validate: {
                 isIn: [['Summer', 'Autumn', 'Winter', 'Spring']],
             },
         },
-        plant_location: {
+        plantLocation: {
             type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
             validate: {
