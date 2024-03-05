@@ -29,14 +29,14 @@ Plant.init(
             allowNull: false,
         },
         plantSeason: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.JSON,
             allowNull: false,
             // validate: {
             //     isIn: [['Summer', 'Autumn', 'Winter', 'Spring']],
             // },
         },
         plantLocation: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.JSON,
             allowNull: false,
             // validate: {
             //     isIn: [['NSW', 'VIC', 'QLD', 'TAS', 'ACT', 'NT', 'SA', 'WA']],
