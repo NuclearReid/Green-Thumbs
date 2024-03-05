@@ -12,7 +12,7 @@
 
 
     <header>Type of plant</header>
-    <div id="plantType">
+    <div id="plantType-checkbox">
         <div class="form-check form-check-inline">
             <input class="form-check-input check-plantType" type="checkbox" id="fruit-checkbox" value="Fruit">
             <label class="form-check-label" for="inlineCheckbox1">Fruit</label>
@@ -37,57 +37,57 @@
 
 
     <header>State</header>
-    <div id="state">
+    <div id="state-checkbox">
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="vic-checkbox" value="VIC">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="vic-checkbox" value="VIC">
             <label class="form-check-label" for="inlineCheckbox1">VIC</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="nsw-checkbox" value="NSW">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="nsw-checkbox" value="NSW">
             <label class="form-check-label" for="inlineCheckbox2">NSW</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="qld-checkbox" value="QLD">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="qld-checkbox" value="QLD">
             <label class="form-check-label" for="inlineCheckbox3">QLD</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="sa-checkbox" value="SA">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="sa-checkbox" value="SA">
             <label class="form-check-label" for="inlineCheckbox2">SA</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="wa-checkbox" value="WA">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="wa-checkbox" value="WA">
             <label class="form-check-label" for="inlineCheckbox3">WA</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="tas-checkbox" value="TAS">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="tas-checkbox" value="TAS">
             <label class="form-check-label" for="inlineCheckbox3">TAS</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-state" type="checkbox" id="act-checkbox" value="ACT">
+            <input class="form-check-input check-plantLocation" type="checkbox" id="act-checkbox" value="ACT">
             <label class="form-check-label" for="inlineCheckbox3">ACT</label>
         </div>
     </div>
 
     <header>Select a season</header>
-    <div id="season">
+    <div id="season-checkbox">
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="spring-checkbox" value="Spring">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="spring-checkbox" value="Spring">
             <label class="form-check-label" for="inlineCheckboxSpring">Spring</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="summer-checkbox" value="Summer">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="summer-checkbox" value="Summer">
             <label class="form-check-label" for="inlineCheckboxSummer">Summer</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="fall-checkbox" value="Fall">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="fall-checkbox" value="Fall">
             <label class="form-check-label" for="inlineCheckboxFall">Fall</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input check-season" type="checkbox" id="winter-checkbox" value="Winter">
+            <input class="form-check-input check-plantSeason" type="checkbox" id="winter-checkbox" value="Winter">
             <label class="form-check-label" for="inlineCheckboxWinter">Winter</label>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Add Plant!</button>
+    <button id="submitbtn" type="submit" class="btn btn-primary">Add Plant!</button>
 </form>
 </section> --}}
 
@@ -97,7 +97,7 @@
         <!-- FORM -->
         <form
           style="background-color: #e6e2e0; border-radius: 2%"
-          class="px-20 py-10"
+          class="px-20 py-10 newPlant"
         >
           <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
@@ -184,7 +184,7 @@
             <div class="border-b border-gray-900/10 pb-12">
               <div class="mt-10 space-y-10">
                 <!-- STATE -->
-                <fieldset id="state">
+                <fieldset class="check-plantLocation" id="state">
                   <legend class="text-md font-bold leading-6 text-gray-900">
                     Select a state
                   </legend>
@@ -192,7 +192,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="vic-checkbox"
+                          id="vic-checkboxState"
                           value="VIC"
                           aria-describedby="VIC-description"
                           name="VIC"
@@ -209,7 +209,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="nsw-checkbox"
+                          id="nsw-checkboxState"
                           value="NSW"
                           aria-describedby="nsw-description"
                           name="NSW"
@@ -226,7 +226,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="qld-checkbox"
+                          id="qld-checkboxState"
                           value="QLD"
                           aria-describedby="qld-description"
                           name="QLD"
@@ -243,7 +243,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="sa-checkbox"
+                          id="sa-checkboxState"
                           value="SA"
                           aria-describedby="SA-description"
                           name="SA"
@@ -260,7 +260,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="wa-checkbox"
+                          id="wa-checkboxState"
                           value="WA"
                           aria-describedby="WA-description"
                           name="WA"
@@ -277,7 +277,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="tas-checkbox"
+                          id="tas-checkboxState"
                           value="TAS"
                           aria-describedby="TAS-description"
                           name="TAS"
@@ -294,7 +294,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="act-checkbox"
+                          id="act-checkboxState"
                           value="ACT"
                           aria-describedby="ACT-description"
                           name="ACT"
@@ -314,14 +314,14 @@
                 <!-- SEASON -->
                 <fieldset id="season">
                   <legend class="text-md font-bold leading-6 text-gray-900">
-                    Select a state
+                    Select a Season
                   </legend>
 
                   <div class="mt-6 space-y-6">
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="spring-checkbox"
+                          id="spring-checkboxSeason"
                           value="Spring"
                           aria-describedby="spring-description"
                           name="Spring"
@@ -341,7 +341,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="summer-checkbox"
+                          id="summer-checkboxSeason"
                           value="Summer"
                           aria-describedby="summer-description"
                           name="summer"
@@ -360,7 +360,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="autumn-checkbox"
+                          id="autumn-checkboxSeason"
                           value="Autumn"
                           aria-describedby="Autumn-description"
                           name="Autumn"
@@ -379,7 +379,7 @@
                     <div class="relative flex items-start">
                       <div class="flex h-6 items-center">
                         <input
-                          id="winter-checkbox"
+                          id="winter-checkboxSeason"
                           value="Winter"
                           aria-describedby="comments-description"
                           name="comments"
@@ -415,4 +415,5 @@
       </div>
     </div>
 </section>
-<script src="./public/js/addPlant.js"></script>
+
+<script src="./js/addPlant.js"></script>
