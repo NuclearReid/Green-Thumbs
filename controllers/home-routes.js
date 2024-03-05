@@ -34,9 +34,9 @@ router.get('/profile', (req, res) => {
     }
 })
 
-router.get('/cool', (req, res) => {
+router.get('/vic', (req, res) => {
     try {
-        res.render('cool');
+        res.render('vic');
     } catch (error) {
         res.status(500).json(error);
     }
@@ -62,9 +62,9 @@ router.get('/tropic', (req, res) => {
         res.status(500).json(error);
     }
 });
-router.get('/warm', (req, res) => {
+router.get('/nsw', (req, res) => {
     try {
-        res.render('warm');
+        res.render('nsw');
     } catch (error) {
         res.status(500).json(error);
     }
