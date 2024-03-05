@@ -1,4 +1,5 @@
-[
+const { Plant } = require('../models');
+const plantData = [
         {
           "plant_name": "Tomato",
           "plant_type": "Fruit",
@@ -286,4 +287,8 @@
           "plant_season": ["Winter", "Spring"],
           "plant_location": ["NSW", "QLD", "VIC", "SA", "WA", "TAS", "ACT"]
         }     
-]
+];
+
+const seedPlant = () => Plant.bulkCreate(plantData);
+
+module.exports = seedPlant;
