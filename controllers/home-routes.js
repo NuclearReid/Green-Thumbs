@@ -34,6 +34,7 @@ router.get('/profile', (req, res) => {
     }
 })
 
+// the states routes
 router.get('/vic', (req, res) => {
     try {
         res.render('vic');
@@ -41,21 +42,21 @@ router.get('/vic', (req, res) => {
         res.status(500).json(error);
     }
 });
-router.get('/hot', (req, res) => {
+router.get('/qld', (req, res) => {
     try {
-        res.render('hot');
+        res.render('qld');
     } catch (error) {
         res.status(500).json(error);
     }
 });
-router.get('/subTropic', (req, res) => {
+router.get('/sa', (req, res) => {
     try {
         res.render('subTropic');
     } catch (error) {
         res.status(500).json(error);
     }
 });
-router.get('/tropic', (req, res) => {
+router.get('/wa', (req, res) => {
     try {
         res.render('tropic');
     } catch (error) {
@@ -69,6 +70,23 @@ router.get('/nsw', (req, res) => {
         res.status(500).json(error);
     }
 });
+router.get('/tas', (req, res) => {
+    try {
+        res.render('tas');
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+router.get('/act', (req, res) => {
+    try {
+        res.render('act');
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+
+// add a plant page
 router.get('/addPlant', (req, res) => {
     try {
         res.render('addPlant');
