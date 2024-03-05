@@ -1,3 +1,11 @@
-<section>
-    tas
-</section>
+{{#each statePlants as |statePlant|}}
+  <div class="card {{plantType}}" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{plantName}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{plantSeason}}</h6>
+      <p class="card-text">{{plantDescription}}</p>
+      <p class="card-text">{{plantLocation}}</p>
+    </div>
+  </div>
+{{/each}}
+

@@ -34,40 +34,50 @@ router.get("/profile", (req, res) => {
 
 // the states routes
 router.get("/vic", async (req, res) => {
-  try {
-    const dbVicPlantData = await Plant.findAll(
-        // {
-    //    where:{
-    //         plantLocation: {
-    //             [Op.contains]: ["VIC"] // Check if 'VIC' is in the plantLocation array
-    //         },
-    //     },
-    // }
-    );
-    const vicPlants = dbVicPlantData.map((plant) =>
-      plant.get({ plain: true })
-    );
-    res.render("vic", {
-      vicPlants: vicPlants,
-    });
-  } catch (error) {
-    res.status(500).json(error);
-  }
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("VIC"));
+
+        res.render("vic", {
+          statePlants: statePlants,
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
 
-router.get("/qld", (req, res) => {
-  try {
-    res.render("qld");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+router.get("/qld", async (req, res) => {
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("QLD"));
+
+        res.render("qld", {
+          statePlants: statePlants,
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
-router.get("/sa", (req, res) => {
-  try {
-    res.render("subTropic");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+router.get("/sa", async (req, res) => {
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("SA"));
+
+        res.render("sa", {
+          statePlants: statePlants,
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
 
 // wa
@@ -78,18 +88,9 @@ router.get("/wa", async (req, res) => {
         const statePlants = dbAllPlantData
         .map((plant) => plant.get({ plain: true }))
         .filter((plant) => plant.plantLocation.includes("WA"));
-        
-        // if plantSeason == 'spring'
-        // spring = true
-        // else if 
-            //summer = true
 
         res.render("wa", {
           statePlants: statePlants,
-          // spring 
-          //sumer
-
-
         });
       } catch (error) {
         res.status(500).json(error);
@@ -99,26 +100,52 @@ router.get("/wa", async (req, res) => {
 
 
 
-router.get("/nsw", (req, res) => {
-  try {
-    res.render("nsw");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+router.get("/nsw", async (req, res) => {
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("NSW"));
+
+        res.render("nsw", {
+          statePlants: statePlants,
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
-router.get("/tas", (req, res) => {
-  try {
-    res.render("tas");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+
+
+router.get("/tas", async (req, res) => {
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("TAS"));
+
+        res.render("tas", {
+          statePlants: statePlants,
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
-router.get("/act", (req, res) => {
-  try {
-    res.render("act");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+router.get("/act", async (req, res) => {
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("ACT"));
+
+        res.render("act", {
+          statePlants: statePlants,
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
 
 // add a plant page
