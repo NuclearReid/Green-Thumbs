@@ -77,65 +77,26 @@
             Welcome to Green Thumbs! <br />
           </h2>
 
- <div class="container">
-      <!-- User details section -->
-      <h2>Welcome, {{ user.full_name }}!</h2>
-      <p>Member ID: {{ user.member_id }}</p>
-      <p>Email: {{ user.email }}</p>
+          <div>
+            <div class="flex justify-center mt-10">
+              <img
+                style="height: 50px; width: 80px; padding-right: 12px"
+                src="./images/GreenthumbsDark.png"
+                alt="Green thumb logo"
+              />
 
-
-<div>
-  <div class="px-4 sm:px-0">
-    <h3 class="text-base font-semibold leading-7 text-gray-900">Account Details</h3>
-  </div>
-  <div class="mt-6 border-t border-gray-100">
-    <dl class="divide-y divide-gray-100">
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Member ID</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">111111</dd>
-      </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Full Name</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
-      </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
-      </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Favourite Plants</dt>
-        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-          <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
-            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-              <div class="flex w-0 flex-1 items-center">
-
-                <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                  <span class="truncate font-medium">Name of Plant 1</span>
-                </div>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Delete</a>
-              </div>
-            </li>
-            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-              <div class="flex w-0 flex-1 items-center">
-
-                <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                  <span class="truncate font-medium">Name of plant 2</span>
-                </div>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Delete</a>
-              </div>
-            </li>
-          </ul>
-        </dd>
-      </div>
-    </dl>
-  </div>
-</div>
-
-        <!-- Pick seeds by State -->
+              <label for="search" class="sr-only">Search</label>
+              <input
+                placeholder="Search plants"
+                type="text"
+                name="search"
+                id="search"
+                class="block w-80 rounded-3xl border-lime-600 text-gray-900 shadow-md ring-2 ring-inset ring-gray-300 placeholder:text-gray-300 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Pick seeds by climate -->
         <div class="py-24 sm:py-26">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0">
