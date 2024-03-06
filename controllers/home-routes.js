@@ -69,13 +69,36 @@ router.get("/sa", (req, res) => {
     res.status(500).json(error);
   }
 });
-router.get("/wa", (req, res) => {
-  try {
-    res.render("tropic");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+
+// wa
+router.get("/wa", async (req, res) => {
+    try {
+        const dbAllPlantData = await Plant.findAll();      
+        
+        const statePlants = dbAllPlantData
+        .map((plant) => plant.get({ plain: true }))
+        .filter((plant) => plant.plantLocation.includes("WA"));
+        
+        // if plantSeason == 'spring'
+        // spring = true
+        // else if 
+            //summer = true
+
+        res.render("wa", {
+          statePlants: statePlants,
+          // spring 
+          //sumer
+
+
+        });
+      } catch (error) {
+        res.status(500).json(error);
+      }
 });
+
+
+
+
 router.get("/nsw", (req, res) => {
   try {
     res.render("nsw");

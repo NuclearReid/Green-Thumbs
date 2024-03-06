@@ -36,7 +36,7 @@ Plant.init(
             // },
         },
         plantLocation: {
-            type: DataTypes.JSON,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
             // validate: {
             //     isIn: [['NSW', 'VIC', 'QLD', 'TAS', 'ACT', 'NT', 'SA', 'WA']],
