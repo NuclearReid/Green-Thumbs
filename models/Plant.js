@@ -20,27 +20,21 @@ Plant.init(
         plantType: {
             type: DataTypes.STRING,
             allowNull: false,
-            // validate: {
-            //     isIn: [['Fruit', 'Vegetable', 'Herb', 'Flower', 'Tree']],
-            // },
+            
         },
         plantDescription: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         plantSeason: {
-            type: DataTypes.JSON,
+            type: DataTypes.STRING,
             allowNull: false,
-            // validate: {
-            //     isIn: [['Summer', 'Autumn', 'Winter', 'Spring']],
-            // },
+            
         },
         plantLocation: {
             type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
-            // validate: {
-            //     isIn: [['NSW', 'VIC', 'QLD', 'TAS', 'ACT', 'NT', 'SA', 'WA']],
-            // },
+            
         },
     },
     {

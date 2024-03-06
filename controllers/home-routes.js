@@ -35,90 +35,256 @@ router.get("/profile", (req, res) => {
 // the states routes
 router.get("/vic", async (req, res) => {
   try {
-    const dbVicPlantData = await Plant.findAll(
-        // {
-    //    where:{
-    //         plantLocation: {
-    //             [Op.contains]: ["VIC"] // Check if 'VIC' is in the plantLocation array
-    //         },
-    //     },
-    // }
-    );
-    const vicPlants = dbVicPlantData.map((plant) =>
-      plant.get({ plain: true })
-    );
-    res.render("vic", {
-      vicPlants: vicPlants,
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        })
+        .filter((plant) => plant.plantLocation.includes("VIC"));
+
+    // I had to do a loop in a loop to go over each spot in the season array individually
+    statePlants.forEach(plant => {
+      plant.plantSeason.forEach(season => {
+        console.log('Current season: ' + season);
+        if (season === 'Spring') {
+            plant.spring = true;
+        } else if (season === 'Summer') {
+            plant.summer = true;
+        } else if (season === 'Winter') {
+            plant.winter = true;
+        } else if (season === 'Autumn') {
+            plant.autumn = true;
+        }
+      });
     });
-  } catch (error) {
+    res.render("vic", { statePlants });
+} catch (error) {
     res.status(500).json(error);
-  }
+}
 });
 
-router.get("/qld", (req, res) => {
+router.get("/qld", async (req, res) => {
   try {
-    res.render("qld");
-  } catch (error) {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        })
+        .filter((plant) => plant.plantLocation.includes("QLD"));
+
+    // I had to do a loop in a loop to go over each spot in the season array individually
+    statePlants.forEach(plant => {
+      plant.plantSeason.forEach(season => {
+        console.log('Current season: ' + season);
+        if (season === 'Spring') {
+            plant.spring = true;
+        } else if (season === 'Summer') {
+            plant.summer = true;
+        } else if (season === 'Winter') {
+            plant.winter = true;
+        } else if (season === 'Autumn') {
+            plant.autumn = true;
+        }
+      });
+    });
+    res.render("qld", { statePlants });
+} catch (error) {
     res.status(500).json(error);
-  }
-});
-router.get("/sa", (req, res) => {
-  try {
-    res.render("subTropic");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+}
 });
 
-// wa
+router.get("/sa", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        })
+        .filter((plant) => plant.plantLocation.includes("SA"));
+
+    // I had to do a loop in a loop to go over each spot in the season array individually
+    statePlants.forEach(plant => {
+      plant.plantSeason.forEach(season => {
+        console.log('Current season: ' + season);
+        if (season === 'Spring') {
+            plant.spring = true;
+        } else if (season === 'Summer') {
+            plant.summer = true;
+        } else if (season === 'Winter') {
+            plant.winter = true;
+        } else if (season === 'Autumn') {
+            plant.autumn = true;
+        }
+      });
+    });
+    res.render("sa", { statePlants });
+} catch (error) {
+    res.status(500).json(error);
+}
+});
+
+
 router.get("/wa", async (req, res) => {
     try {
-        const dbAllPlantData = await Plant.findAll();      
-        
+        const dbAllPlantData = await Plant.findAll();
         const statePlants = dbAllPlantData
-        .map((plant) => plant.get({ plain: true }))
-        .filter((plant) => plant.plantLocation.includes("WA"));
-        
-        // if plantSeason == 'spring'
-        // spring = true
-        // else if 
-            //summer = true
+            .map((plant) => {
+                const plantData = plant.get({ plain: true });
+                // Initialize season flags for each plant
+                plantData.spring = false;
+                plantData.summer = false;
+                plantData.winter = false;
+                plantData.autumn = false;
+                return plantData;
+            })
+            .filter((plant) => plant.plantLocation.includes("WA"));
 
-        res.render("wa", {
-          statePlants: statePlants,
-          // spring 
-          //sumer
-
-
+        // I had to do a loop in a loop to go over each spot in the season array individually
+        statePlants.forEach(plant => {
+          plant.plantSeason.forEach(season => {
+            console.log('Current season: ' + season);
+            if (season === 'Spring') {
+                plant.spring = true;
+            } else if (season === 'Summer') {
+                plant.summer = true;
+            } else if (season === 'Winter') {
+                plant.winter = true;
+            } else if (season === 'Autumn') {
+                plant.autumn = true;
+            }
+          });
         });
-      } catch (error) {
+        res.render("wa", { statePlants });
+    } catch (error) {
         res.status(500).json(error);
-      }
+    }
+});
+
+router.get("/nsw", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        })
+        .filter((plant) => plant.plantLocation.includes("NSW"));
+
+    // I had to do a loop in a loop to go over each spot in the season array individually
+    statePlants.forEach(plant => {
+      plant.plantSeason.forEach(season => {
+        console.log('Current season: ' + season);
+        if (season === 'Spring') {
+            plant.spring = true;
+        } else if (season === 'Summer') {
+            plant.summer = true;
+        } else if (season === 'Winter') {
+            plant.winter = true;
+        } else if (season === 'Autumn') {
+            plant.autumn = true;
+        }
+      });
+    });
+    res.render("nsw", { statePlants });
+} catch (error) {
+    res.status(500).json(error);
+}
 });
 
 
+router.get("/tas", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        })
+        .filter((plant) => plant.plantLocation.includes("TAS"));
 
+    // I had to do a loop in a loop to go over each spot in the season array individually
+    statePlants.forEach(plant => {
+      plant.plantSeason.forEach(season => {
+        console.log('Current season: ' + season);
+        if (season === 'Spring') {
+            plant.spring = true;
+        } else if (season === 'Summer') {
+            plant.summer = true;
+        } else if (season === 'Winter') {
+            plant.winter = true;
+        } else if (season === 'Autumn') {
+            plant.autumn = true;
+        }
+      });
+    });
+    res.render("tas", { statePlants });
+} catch (error) {
+    res.status(500).json(error);
+}
+});
 
-router.get("/nsw", (req, res) => {
+router.get("/act", async (req, res) => {
   try {
-    res.render("nsw");
-  } catch (error) {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        })
+        .filter((plant) => plant.plantLocation.includes("ACT"));
+
+    // I had to do a loop in a loop to go over each spot in the season array individually
+    statePlants.forEach(plant => {
+      plant.plantSeason.forEach(season => {
+        console.log('Current season: ' + season);
+        if (season === 'Spring') {
+            plant.spring = true;
+        } else if (season === 'Summer') {
+            plant.summer = true;
+        } else if (season === 'Winter') {
+            plant.winter = true;
+        } else if (season === 'Autumn') {
+            plant.autumn = true;
+        }
+      });
+    });
+    res.render("act", { statePlants });
+} catch (error) {
     res.status(500).json(error);
-  }
-});
-router.get("/tas", (req, res) => {
-  try {
-    res.render("tas");
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-router.get("/act", (req, res) => {
-  try {
-    res.render("act");
-  } catch (error) {
-    res.status(500).json(error);
-  }
+}
 });
 
 // add a plant page

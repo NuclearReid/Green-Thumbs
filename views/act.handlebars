@@ -1,3 +1,53 @@
-<section>
-    act
-</section>
+<header>Spring</header>
+{{#each statePlants as |statePlant|}}
+    {{#if statePlant.spring}}
+    <div class="card {{statePlant.plantType}}" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{statePlant.plantName}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{statePlant.plantSeason}}</h6>
+        <p class="card-text">{{statePlant.plantDescription}}</p>
+        <p class="card-text">{{statePlant.plantLocation}}</p>
+        </div>
+    </div>
+    {{/if}}
+{{/each}}
+<header>Summer</header>
+{{#each statePlants as |statePlant|}}
+    {{#if statePlant.summer}}
+    <div class="card {{statePlant.plantType}}" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{statePlant.plantName}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{statePlant.plantSeason}}</h6>
+        <p class="card-text">{{statePlant.plantDescription}}</p>
+        <p class="card-text">{{statePlant.plantLocation}}</p>
+        </div>
+    </div>
+    {{/if}}
+{{/each}}
+<header>Autumn</header>
+{{#each statePlants as |statePlant|}}
+    {{#if statePlant.autumn}}
+    <div class="card {{statePlant.plantType}}" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{statePlant.plantName}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{statePlant.plantSeason}}</h6>
+        <p class="card-text">{{statePlant.plantDescription}}</p>
+        <p class="card-text">{{statePlant.plantLocation}}</p>
+        </div>
+    </div>
+    {{/if}}
+{{/each}}
+<header>Winter</header>
+{{#each statePlants as |statePlant|}}
+    {{#if statePlant.winter}}
+    <div class="card {{statePlant.plantType}}" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{statePlant.plantName}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{statePlant.plantSeason}}</h6>
+        <p class="card-text">{{statePlant.plantDescription}}</p>
+        <p class="card-text">{{statePlant.plantLocation}}</p>
+        </div>
+    </div>
+    {{/if}}
+{{/each}}
+
