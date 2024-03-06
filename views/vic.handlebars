@@ -1,15 +1,48 @@
 
-{{#each vicPlants as |vicplant|}}
-    {{!-- {{#if (eq vicplant.plantName 'Summer')}} --}}
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{plantName}}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">{{plantSeason}}</h6>
-        <p class="card-text">{{plantDescription}}</p>
-        <p class="card-text">{{plantLocation}}</p>
-        {{!-- <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a> --}}
+{{!--the html data-theme="cupcake" is for daisyui setup --}}
+<html lang="en" data-theme="cupcake">
+  <div class="py-24 sm:py-32">
+    <div class="flex justify-center ml-20 mt-20">
+      <div>
+        <h2
+          style="font-family: Montagu Slab; font-size: 30px;"
+          class="font-bold mb-5  text-center text-gray-900 sm:text-4xl"
+        >
+          Add title here
+        </h2>
+        <ul
+          role="list"
+          class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
+        >
+          {{#each vicPlants as |vicplant|}}
+            <li>
+              <div class="card w-96 bg-base-100 shadow-xl image-full">
+                <figure>
+                  <img src="../images/card-bg.jpg" alt="card-bg" />
+                </figure>
+                <div class="card-body">
+                  <h2 class="card-title">{{plantName}}  </h2>
+                  <p class="bg-neutral-content text-neutral p-2">
+                    {{plantDescription}}
+                  </p>
+                  <div class="card-actions justify-end">
+                    <button style="background-color: #f6e2bd6e;" class="btn">
+                       {{plantEmoji plantType}}    {{plantSeason}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+        {{!-- spscing --}}
+         <div class="py-24 sm:py-32"></div>
+      </div>
+
     </div>
-    </div>
-    {{!-- {{/if}} --}}
-{{/each}}
+  </div>
+  
+{{> footer}}
+ 
+</html>
+
