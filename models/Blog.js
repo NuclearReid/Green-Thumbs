@@ -30,6 +30,10 @@ Blog.init(
                 model: "user",
                 key: "id",
             },
+        blogLocation: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false,    
+            }, 
         },  
     },
     {
