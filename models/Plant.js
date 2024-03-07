@@ -27,7 +27,7 @@ Plant.init(
             allowNull: false,
         },
         plantSeason: {
-            type: DataTypes.STRING,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
             
         },
