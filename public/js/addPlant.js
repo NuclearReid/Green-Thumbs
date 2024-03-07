@@ -54,7 +54,7 @@ const newPlantFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    // document.location.replace("/profile");
+    document.location.replace("/profile");
   }
 };
 
