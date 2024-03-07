@@ -71,20 +71,21 @@
           role="list"
           class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
         >
-          {{#each vicPlants as |vicplant|}}
+          {{#each statePlants as |statePlant|}}
+          <p>{{statePlant.plantName}}</p>
             <li>
               <div class="card w-96 bg-base-100 shadow-xl image-full">
                 <figure>
                   <img src="../images/card-bg.jpg" alt="card-bg" />
                 </figure>
                 <div class="card-body">
-                  <h2 class="card-title">{{plantName}}  </h2>
+                  <h2 class="card-title">{{statePlant.plantName}}  </h2>
                   <p class="bg-neutral-content text-neutral p-2">
-                    {{plantDescription}}
+                    {{statePlant.plantDescription}}
                   </p>
                   <div class="card-actions justify-end">
                     <button style="background-color: #f6e2bd6e;" class="btn">
-                       {{plantEmoji plantType}}    {{plantSeason}}
+                       {{plantEmoji statePlant.plantType}}    {{statePlant.plantSeason}}
                     </button>
                   </div>
                 </div>
