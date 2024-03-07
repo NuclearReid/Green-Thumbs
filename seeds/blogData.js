@@ -9,7 +9,6 @@ const blogData = [
     blogLocation: ["VIC"]
   },
   {
-{
     title: "When to Prune Roses in NSW",
     body: "In New South Wales, the ideal time for pruning roses is in late winter, around July to August, before the new growth starts. This timing helps stimulate fresh growth and blooms.",
     blogLocation: ["NSW"]
