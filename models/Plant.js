@@ -27,13 +27,25 @@ Plant.init(
             allowNull: false,
         },
         plantSeason: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.STRING,
             allowNull: false,
+            get() {
+                return this.getDataValue('plantSeason').split(',')
+            },
+            set(val) {
+                return this.setDataValue('plantSeason', val.join(','));
+            }
             
         },
         plantLocation: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.STRING,
             allowNull: false,
+            get() {
+                return this.getDataValue('plantLocation').split(',')
+            },
+            set(val) {
+                return this.setDataValue('plantLocation', val.join(','));
+            }
             
         },
     },
