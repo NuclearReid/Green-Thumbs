@@ -1,11 +1,30 @@
-
-
-var loginButton = document.getElementById('loginButton');
-
-loginButton.addEventListener('click', function (event) {
+const loginFormHandler = async (event) => {
     event.preventDefault();
-    console.log('CLICKED');
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    console.log(email, password);
- });
+  
+    // Collect values from the login form
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+  
+    if (email && password) {
+      // Send a POST request to the login API endpoint
+      const response = await fetch('/api/users/login', {
+        method: 'POST',
+        // sending the user's email and password
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        // If successful, redirect the browser to the home page
+        document.location.replace('/profile');
+      } else {
+        alert(response.statusText);
+      }
+    }
+  };
+
+  
+  document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginFormHandler);
+  

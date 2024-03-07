@@ -32,7 +32,7 @@ router.get("/profile", (req, res) => {
   } catch (error) {}
 });
 
-// the states routes
+////// the states routes   ////////////
 router.get("/vic", async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
@@ -308,6 +308,8 @@ router.get("/act", async (req, res) => {
       res.status(500).json(error);
   }
 });
+/////////////////////////////////
+
 
 // add a plant page
 router.get("/addPlant", (req, res) => {
