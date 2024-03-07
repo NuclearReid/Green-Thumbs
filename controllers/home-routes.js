@@ -45,28 +45,22 @@ router.get("/vic", async (req, res) => {
             plantData.winter = false;
             plantData.autumn = false;
             return plantData;
-        })
-        .filter((plant) => plant.plantLocation.includes("VIC"));
-
-    // I had to do a loop in a loop to go over each spot in the season array individually
+        }).filter((plant) => plant.plantLocation.includes("VIC"));
+    
+        // I had to do a loop in a loop to go over each spot in the season array individually
     statePlants.forEach(plant => {
-      console.log(`in the statePlants.forEach statePlants.plantSeason: ${statePlants}`);
       plant.plantSeason.forEach(season => {
-        console.json(statePlants);
-        console.log('Current season: ' + season);
         if (season === 'Spring') {
-            plant.spring = true;
+          plant.spring = true;
         } else if (season === 'Summer') {
-            plant.summer = true;
+          plant.summer = true;
         } else if (season === 'Winter') {
-            plant.winter = true;
+          plant.winter = true;
         } else if (season === 'Autumn') {
-            plant.autumn = true;
+          plant.autumn = true;
         }
       });
     });
-    console.log('after stateplants.forEach')
-    console.log(statePlants);
     res.render("vic", { statePlants });
 } catch (error) {
     res.status(500).json(error);
@@ -76,7 +70,6 @@ router.get("/vic", async (req, res) => {
 router.get("/qld", async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
-    // console.log(dbAllPlantData);
     const statePlants = dbAllPlantData
         .map((plant) => {
             const plantData = plant.get({ plain: true });
@@ -87,16 +80,12 @@ router.get("/qld", async (req, res) => {
             plantData.autumn = false;
             return plantData;
         }).filter((plant) => plant.plantLocation.includes("QLD"));
-        // console.log('first ', statePlants);
     // I had to do a loop in a loop to go over each spot in the season array individually
 
     statePlants.forEach(plant => {
       // console.log(plantSeasonArray);
-      console.log('plant: ',plant);
-      console.log(typeof plant.plantSeason);
       plant.plantSeason.forEach(season => {
-      // const plantSeasonArray = JSON.parse(plant.season);
-      // console.log(plantSeasonArray);
+
         console.log('whatever');
         console.log('plant.plantSeason ',plant.plantSeason);
         if (season === 'Spring') {
@@ -112,7 +101,6 @@ router.get("/qld", async (req, res) => {
     });
 
 
-    console.log('second', statePlants);
     res.render("qld", { statePlants });
 } catch (error) {
     res.status(500).json(error);
