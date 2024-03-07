@@ -26,10 +26,27 @@ router.get("/signup", (req, res) => {
   }
 });
 
-router.get("/profile", (req, res) => {
+router.get("/profile", async (req, res) => {
   try {
-    res.render("profile");
-  } catch (error) {}
+    const dbUserData = await User.findByPk(req.session.user_id, {
+      attributes: {exclude: ['password']}
+    });
+        
+    if(dbUserData){
+      const chosenUser = dbUserData.get({plain: true});
+      res.render("profile", {
+        chosenUser,
+        logged_in: true
+      });
+  }
+  else{
+    res.render('landing');
+  }
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
 ////// the states routes   ////////////

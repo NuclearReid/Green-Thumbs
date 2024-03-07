@@ -21,10 +21,15 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
-        res.redirect(`/profile/${userData.id}`);
-    } catch (error) {
-        res.status(500).json(error);
-    }
+        req.session.save(() => {
+          req.session.user_id = userData.id;
+          req.session.logged_in = true;
+          res.status(200).json(userData);
+      });
+
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 

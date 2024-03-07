@@ -44,7 +44,7 @@
             href="#"
             class="text-md font-semibold leading-6"
             style="color: #92be63"
-            >Climates</a
+            >States</a
           >
           <a
             href="#"
@@ -79,10 +79,10 @@
 
  <div class="container">
       <!-- User details section -->
-      <h2>Welcome, {{ user.full_name }}!</h2>
-      <p>Member ID: {{ user.member_id }}</p>
-      <p>Email: {{ user.email }}</p>
-
+      {{!-- <h2>Welcome, {{ chosenUser.userName }}!</h2>
+      <p>Member ID: {{ chosenUser.id }}</p>
+      <p>Email: {{ chosenUser.email }}</p>
+ --}}
 
 <div>
   <div class="px-4 sm:px-0">
@@ -92,15 +92,15 @@
     <dl class="divide-y divide-gray-100">
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm font-medium leading-6 text-gray-900">Member ID</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">111111</dd>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.id}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Full Name</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+        <dt class="text-sm font-medium leading-6 text-gray-900">Username</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.userName}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.email}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm font-medium leading-6 text-gray-900">Favourite Plants</dt>
