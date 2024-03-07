@@ -102,9 +102,9 @@ router.get("/qld", async (req, res) => {
 
 
     res.render("qld", { statePlants });
-} catch (error) {
-    res.status(500).json(error);
-}
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 router.get("/sa", async (req, res) => {
@@ -119,65 +119,73 @@ router.get("/sa", async (req, res) => {
             plantData.winter = false;
             plantData.autumn = false;
             return plantData;
-        })
-        .filter((plant) => plant.plantLocation.includes("SA"));
-
+        }).filter((plant) => plant.plantLocation.includes("SA"));
     // I had to do a loop in a loop to go over each spot in the season array individually
+
     statePlants.forEach(plant => {
+      // console.log(plantSeasonArray);
       plant.plantSeason.forEach(season => {
-        console.log('Current season: ' + season);
+
+        console.log('whatever');
+        console.log('plant.plantSeason ',plant.plantSeason);
         if (season === 'Spring') {
-            plant.spring = true;
+          plant.spring = true;
         } else if (season === 'Summer') {
-            plant.summer = true;
+          plant.summer = true;
         } else if (season === 'Winter') {
-            plant.winter = true;
+          plant.winter = true;
         } else if (season === 'Autumn') {
-            plant.autumn = true;
+          plant.autumn = true;
         }
       });
     });
+
+
     res.render("sa", { statePlants });
-} catch (error) {
-    res.status(500).json(error);
-}
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 
 router.get("/wa", async (req, res) => {
-    try {
-        const dbAllPlantData = await Plant.findAll();
-        const statePlants = dbAllPlantData
-            .map((plant) => {
-                const plantData = plant.get({ plain: true });
-                // Initialize season flags for each plant
-                plantData.spring = false;
-                plantData.summer = false;
-                plantData.winter = false;
-                plantData.autumn = false;
-                return plantData;
-            })
-            .filter((plant) => plant.plantLocation.includes("WA"));
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        }).filter((plant) => plant.plantLocation.includes("WA"));
+    // I had to do a loop in a loop to go over each spot in the season array individually
 
-        // I had to do a loop in a loop to go over each spot in the season array individually
-        statePlants.forEach(plant => {
-          plant.plantSeason.forEach(season => {
-            console.log('Current season: ' + season);
-            if (season === 'Spring') {
-                plant.spring = true;
-            } else if (season === 'Summer') {
-                plant.summer = true;
-            } else if (season === 'Winter') {
-                plant.winter = true;
-            } else if (season === 'Autumn') {
-                plant.autumn = true;
-            }
-          });
-        });
-        res.render("wa", { statePlants });
-    } catch (error) {
-        res.status(500).json(error);
-    }
+    statePlants.forEach(plant => {
+      // console.log(plantSeasonArray);
+      plant.plantSeason.forEach(season => {
+
+        console.log('whatever');
+        console.log('plant.plantSeason ',plant.plantSeason);
+        if (season === 'Spring') {
+          plant.spring = true;
+        } else if (season === 'Summer') {
+          plant.summer = true;
+        } else if (season === 'Winter') {
+          plant.winter = true;
+        } else if (season === 'Autumn') {
+          plant.autumn = true;
+        }
+      });
+    });
+
+
+    res.render("wa", { statePlants });
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 router.get("/nsw", async (req, res) => {
@@ -192,28 +200,32 @@ router.get("/nsw", async (req, res) => {
             plantData.winter = false;
             plantData.autumn = false;
             return plantData;
-        })
-        .filter((plant) => plant.plantLocation.includes("NSW"));
-
+        }).filter((plant) => plant.plantLocation.includes("NSW"));
     // I had to do a loop in a loop to go over each spot in the season array individually
+
     statePlants.forEach(plant => {
+      // console.log(plantSeasonArray);
       plant.plantSeason.forEach(season => {
-        console.log('Current season: ' + season);
+
+        console.log('whatever');
+        console.log('plant.plantSeason ',plant.plantSeason);
         if (season === 'Spring') {
-            plant.spring = true;
+          plant.spring = true;
         } else if (season === 'Summer') {
-            plant.summer = true;
+          plant.summer = true;
         } else if (season === 'Winter') {
-            plant.winter = true;
+          plant.winter = true;
         } else if (season === 'Autumn') {
-            plant.autumn = true;
+          plant.autumn = true;
         }
       });
     });
+
+
     res.render("nsw", { statePlants });
-} catch (error) {
-    res.status(500).json(error);
-}
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 
@@ -229,28 +241,32 @@ router.get("/tas", async (req, res) => {
             plantData.winter = false;
             plantData.autumn = false;
             return plantData;
-        })
-        .filter((plant) => plant.plantLocation.includes("TAS"));
-
+        }).filter((plant) => plant.plantLocation.includes("TAS"));
     // I had to do a loop in a loop to go over each spot in the season array individually
+
     statePlants.forEach(plant => {
+      // console.log(plantSeasonArray);
       plant.plantSeason.forEach(season => {
-        console.log('Current season: ' + season);
+
+        console.log('whatever');
+        console.log('plant.plantSeason ',plant.plantSeason);
         if (season === 'Spring') {
-            plant.spring = true;
+          plant.spring = true;
         } else if (season === 'Summer') {
-            plant.summer = true;
+          plant.summer = true;
         } else if (season === 'Winter') {
-            plant.winter = true;
+          plant.winter = true;
         } else if (season === 'Autumn') {
-            plant.autumn = true;
+          plant.autumn = true;
         }
       });
     });
+
+
     res.render("tas", { statePlants });
-} catch (error) {
-    res.status(500).json(error);
-}
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 router.get("/act", async (req, res) => {
@@ -265,28 +281,32 @@ router.get("/act", async (req, res) => {
             plantData.winter = false;
             plantData.autumn = false;
             return plantData;
-        })
-        .filter((plant) => plant.plantLocation.includes("ACT"));
-
+        }).filter((plant) => plant.plantLocation.includes("ACT"));
     // I had to do a loop in a loop to go over each spot in the season array individually
+
     statePlants.forEach(plant => {
+      // console.log(plantSeasonArray);
       plant.plantSeason.forEach(season => {
-        console.log('Current season: ' + season);
+
+        console.log('whatever');
+        console.log('plant.plantSeason ',plant.plantSeason);
         if (season === 'Spring') {
-            plant.spring = true;
+          plant.spring = true;
         } else if (season === 'Summer') {
-            plant.summer = true;
+          plant.summer = true;
         } else if (season === 'Winter') {
-            plant.winter = true;
+          plant.winter = true;
         } else if (season === 'Autumn') {
-            plant.autumn = true;
+          plant.autumn = true;
         }
       });
     });
+
+
     res.render("act", { statePlants });
-} catch (error) {
-    res.status(500).json(error);
-}
+  } catch (error) {
+      res.status(500).json(error);
+  }
 });
 
 // add a plant page
