@@ -52,6 +52,35 @@
 {{/each}}
  --}}
 
+<header class="font-bold text-xl my-4">Spring</header>
+<!-- Swiper Container -->
+<div class="mx-auto max-w-screen-md overflow-hidden">
+  <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+          {{#each statePlants as |statePlant|}}
+          {{#if statePlant.spring}}
+          <div class="swiper-slide">
+              <div class="card {{statePlant.plantType}} bg-white shadow-lg rounded-lg" style="width: 100px;">
+                  <div class="card-body p-4">
+                      <h5 class="card-title font-semibold">{{statePlant.plantName}}</h5>
+                      <h6 class="card-subtitle mb-2 text-gray-500">{{statePlant.plantSeason}}</h6>
+                      <p class="card-text text-sm">{{statePlant.plantDescription}}</p>
+                      <p class="card-text text-sm">{{statePlant.plantLocation}}</p>
+                  </div>
+              </div>
+          </div>
+          {{/if}}
+          {{/each}}
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+
 
 {{!--the html data-theme="cupcake" is for daisyui setup --}}
 <html lang="en" data-theme="cupcake">
