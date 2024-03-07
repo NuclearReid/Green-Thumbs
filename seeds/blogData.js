@@ -8,7 +8,8 @@ const blogData = [
     body: "Planting tomatoes in Victoria achieves best results when started in early spring, as the frosty weather ends. Starting your seeds indoors around late August to September and transferring them outdoors in November can maximize yield.",
     blogLocation: ["VIC"]
   },
-  {
+  
+{
     title: "When to Prune Roses in NSW",
     body: "In New South Wales, the ideal time for pruning roses is in late winter, around July to August, before the new growth starts. This timing helps stimulate fresh growth and blooms.",
     blogLocation: ["NSW"]
@@ -55,7 +56,7 @@ const blogData = [
   }
 ];
 
-console.log(blogData);
+// console.log(blogD÷ata);
 const seedBlogPost = () => Blog.bulkCreate(blogData);
 
 module.exports = seedBlogPost;
