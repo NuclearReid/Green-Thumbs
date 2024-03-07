@@ -2,7 +2,7 @@ const { Plant } = require('../models');
 const plantData = [
   {
   "plantName": "Tomato",
-  "planType": "Fruit",
+  "plantType": "Fruit",
   "plantDescription": "A versatile and popular garden fruit with a wide range of varieties.",
   "plantSeason": ["Spring", "Summer"],
   "plantLocation": ["QLD", "NSW", "VIC", "SA", "WA", "NT", "TAS", "ACT"]
