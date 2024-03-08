@@ -26,13 +26,30 @@ router.get("/signup", (req, res) => {
   }
 });
 
-router.get("/profile", (req, res) => {
+router.get("/profile", async (req, res) => {
   try {
-    res.render("profile");
-  } catch (error) {}
+    const dbUserData = await User.findByPk(req.session.user_id, {
+      attributes: {exclude: ['password']}
+    });
+        
+    if(dbUserData){
+      const chosenUser = dbUserData.get({plain: true});
+      res.render("profile", {
+        chosenUser,
+        logged_in: true
+      });
+  }
+  else{
+    res.render('landing');
+  }
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
-// the states routes
+////// the states routes   ////////////
 router.get("/vic", async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
@@ -308,6 +325,8 @@ router.get("/act", async (req, res) => {
       res.status(500).json(error);
   }
 });
+/////////////////////////////////
+
 
 // add a plant page
 router.get("/addPlant", (req, res) => {
