@@ -53,10 +53,11 @@
             >Blog</a
           >
           <a
-            href="#"
+            href="/"
+            id="logout"
             class="text-md font-semibold leading-6"
             style="color: #92be63"
-            >Favourites</a
+            >logout</a
           >
         </div>
         <!-- spacing -->
@@ -102,7 +103,7 @@
         <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.email}}</dd>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      {{!-- <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm font-medium leading-6 text-gray-900">Favourite Plants</dt>
         <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
           <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
@@ -130,7 +131,7 @@
             </li>
           </ul>
         </dd>
-      </div>
+      </div> --}}
     </dl>
   </div>
 </div>
@@ -277,5 +278,6 @@
 
     <!-- Footer-->
    {{> footer}}
+   <script src="./js/logout.js"></script>
   <!-- </body>
 </html> -->
