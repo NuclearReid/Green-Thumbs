@@ -1,3 +1,28 @@
 body {
-  background-color: #f1e5cf6e;
+  background-color: #ecdbbb6e;
+}
+
+/* slick styling */
+.slick-prev,
+.slick-next {
+  z-index: 2;
+}
+.slick-prev {
+  left: 25px;
+ 
+}
+.slick-next {
+  right: 25px;
+  
+
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px;
+}
+
+.slick-slide{
+  height:40%;
+
 }

@@ -1,171 +1,145 @@
-{{!-- NSW --}}
-{{!--the html data-theme="cupcake" is for daisyui setup --}}
-<html lang="en" data-theme="cupcake">
-  <div class="py-24 sm:py-32">
-    <div class="flex justify-center ml-20 mt-20">
-      <div>
-        <h2
-          style="font-family: Montagu Slab; font-size: 30px;"
-          class="font-bold mb-5  text-center text-gray-900 sm:text-4xl"
-        >
-          Spring
-        </h2>
-        <ul
-          role="list"
-          class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
-        >
-          {{#each statePlants as |statePlant|}}
-           {{#if statePlant.spring}}
-            <li>
-              <div class="card   bg-base-100 shadow-xl image-full">
-                <figure>
-                  <img src="../images/card-bg.jpg" alt="card-bg" />
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">{{plantName}}  </h2>
-                  <p class="bg-neutral-content text-neutral p-2">
-                    {{plantDescription}}
-                  </p>
-                  <div class="card-actions justify-end">
-                    <button style="background-color: #f6e2bd6e;" class="btn">
-                       {{plantEmoji plantType}}    {{plantSeason}}
-                    </button>
-                  </div>
-                </div>
+{{! spring cards }}
+<div class="pt-24 sm:pt-32">
+  <h2
+    style="font-family: Montagu Slab; font-size: 30px;"
+    class="font-bold mb-5 text-center text-gray-900 sm:text-4xl"
+  >
+    Spring
+  </h2>
+  {{! slick-carousel }}
+  <div class="slick-carousel">
+    {{#each statePlants as |statePlant|}}
+      {{#if statePlant.spring}}
+        <div class="mr-5 ml-5">
+          <div class="card bg-base-100 shadow-xl image-full">
+            <figure>
+              <img src="../images/card-bg.jpg" alt="card-bg" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{{plantName}} </h2>
+              <p class="bg-neutral-content text-neutral p-2">
+                {{plantDescription}}
+              </p>
+              <div class="card-actions justify-end">
+                <button style="background-color: #f6e2bd6e;" class="btn">
+                  {{plantEmoji plantType}}
+                  {{plantSeason}}
+                </button>
               </div>
-            </li>
-            {{/if}}
-          {{/each}}
-        </ul>
-
-        
-      </div>
-    </div>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
   </div>
-  <div class="py-24 sm:py-32">
-    <div class="flex justify-center ml-20 mt-20">
-      <div>
-        <h2
-          style="font-family: Montagu Slab; font-size: 30px;"
-          class="font-bold mb-5  text-center text-gray-900 sm:text-4xl"
-        >
-          Summer
-        </h2>
-        <ul
-          role="list"
-          class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
-        >
-          {{#each statePlants as |statePlant|}}
-           {{#if statePlant.summer}}
-            <li>
-              <div class="card  bg-base-100 shadow-xl image-full">
-                <figure>
-                  <img src="../images/card-bg.jpg" alt="card-bg" />
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">{{plantName}}  </h2>
-                  <p class="bg-neutral-content text-neutral p-2">
-                    {{plantDescription}}
-                  </p>
-                  <div class="card-actions justify-end">
-                    <button style="background-color: #f6e2bd6e;" class="btn">
-                       {{plantEmoji plantType}}    {{plantSeason}}
-                    </button>
-                  </div>
-                </div>
+</div>
+
+{{!   Summer cards }}
+<div class="pt-24 sm:pt-32">
+  <h2
+    style="font-family: Montagu Slab; font-size: 30px;"
+    class="font-bold mb-5 text-center text-gray-900 sm:text-4xl"
+  >
+    Summer
+  </h2>
+  {{! slick-carousel }}
+  <div class="slick-carousel">
+    {{#each statePlants as |statePlant|}}
+      {{#if statePlant.summer}}
+        <div class="mr-5 ml-5">
+          <div class="card bg-base-100 shadow-xl image-full">
+            <figure>
+              <img src="../images/card-bg.jpg" alt="card-bg" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{{plantName}} </h2>
+              <p class="bg-neutral-content text-neutral p-2">
+                {{plantDescription}}
+              </p>
+              <div class="card-actions justify-end">
+                <button style="background-color: #f6e2bd6e;" class="btn">
+                  {{plantEmoji plantType}}
+                  {{plantSeason}}
+                </button>
               </div>
-            </li>
-            {{/if}}
-          {{/each}}
-        </ul>
- 
-      </div>
-    </div>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
   </div>
-  <div class="py-24 sm:py-32">
-    <div class="flex justify-center ml-20 mt-20">
-      <div>
-        <h2
-          style="font-family: Montagu Slab; font-size: 30px;"
-          class="font-bold mb-5  text-center text-gray-900 sm:text-4xl"
-        >
-          Autumn
-        </h2>
-        <ul
-          role="list"
-          class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
-        >
-          {{#each statePlants as |statePlant|}}
-           {{#if statePlant.autumn}}
-            <li>
-              <div class="card   bg-base-100 shadow-xl image-full">
-                <figure>
-                  <img src="../images/card-bg.jpg" alt="card-bg" />
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">{{plantName}}  </h2>
-                  <p class="bg-neutral-content text-neutral p-2">
-                    {{plantDescription}}
-                  </p>
-                  <div class="card-actions justify-end">
-                    <button style="background-color: #f6e2bd6e;" class="btn">
-                       {{plantEmoji plantType}}    {{plantSeason}}
-                    </button>
-                  </div>
-                </div>
+</div>
+
+{{!   Autumn cards }}
+<div class="pt-24 sm:pt-32">
+  <h2
+    style="font-family: Montagu Slab; font-size: 30px;"
+    class="font-bold mb-5 text-center text-gray-900 sm:text-4xl"
+  >
+    Autumn
+  </h2>
+  {{! slick-carousel }}
+  <div class="slick-carousel">
+    {{#each statePlants as |statePlant|}}
+      {{#if statePlant.autumn}}
+        <div class="mr-5 ml-5">
+          <div class="card bg-base-100 shadow-xl image-full">
+            <figure>
+              <img src="../images/card-bg.jpg" alt="card-bg" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{{plantName}} </h2>
+              <p class="bg-neutral-content text-neutral p-2">
+                {{plantDescription}}
+              </p>
+              <div class="card-actions justify-end">
+                <button style="background-color: #f6e2bd6e;" class="btn">
+                  {{plantEmoji plantType}}
+                  {{plantSeason}}
+                </button>
               </div>
-            </li>
-            {{/if}}
-          {{/each}}
-        </ul>
-
-         
-      </div>
-    </div>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
   </div>
-  <div class="py-24 sm:py-32">
-    <div class="flex justify-center ml-20 mt-20">
-      <div>
-        <h2
-          style="font-family: Montagu Slab; font-size: 30px;"
-          class="font-bold mb-5  text-center text-gray-900 sm:text-4xl"
-        >
-          Winter
-        </h2>
-        <ul
-          role="list"
-          class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
-        >
-          {{#each statePlants as |statePlant|}}
-           {{#if statePlant.winter}}
-            <li>
-              <div class="card   bg-base-100 shadow-xl image-full">
-                <figure>
-                  <img src="../images/card-bg.jpg" alt="card-bg" />
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">{{plantName}}  </h2>
-                  <p class="bg-neutral-content text-neutral p-2">
-                    {{plantDescription}}
-                  </p>
-                  <div class="card-actions justify-end">
-                    <button style="background-color: #f6e2bd6e;" class="btn">
-                       {{plantEmoji plantType}}    {{plantSeason}}
-                    </button>
-                  </div>
-                </div>
+</div>
+
+{{!   Winter cards }}
+<div class="py-24 sm:py-32">
+  <h2
+    style="font-family: Montagu Slab; font-size: 30px;"
+    class="font-bold mb-5 text-center text-gray-900 sm:text-4xl"
+  >
+    Winter
+  </h2>
+  {{! slick-carousel }}
+  <div class="slick-carousel">
+    {{#each statePlants as |statePlant|}}
+      {{#if statePlant.winter}}
+        <div class="mr-5 ml-5">
+          <div class="card bg-base-100 shadow-xl image-full">
+            <figure>
+              <img src="../images/card-bg.jpg" alt="card-bg" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{{plantName}} </h2>
+              <p class="bg-neutral-content text-neutral p-2">
+                {{plantDescription}}
+              </p>
+              <div class="card-actions justify-end">
+                <button style="background-color: #f6e2bd6e;" class="btn">
+                  {{plantEmoji plantType}}
+                  {{plantSeason}}
+                </button>
               </div>
-            </li>
-            {{/if}}
-          {{/each}}
-        </ul>
-        {{!-- spscing --}}
-         <div class="py-24 sm:py-32"></div>
-      </div>
-    </div>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
   </div>
+</div>
 
-{{> footer}}
- 
-</html>
-
+ <div> {{> footer}} </div>  
