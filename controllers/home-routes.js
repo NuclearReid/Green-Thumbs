@@ -337,4 +337,51 @@ router.get("/addPlant", (req, res) => {
   }
 });
 
+////// the season routes   ////////////
+router.get("/summer", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const seasonPlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize state flags for each plant
+            plantData.NSW = false;
+            plantData.QLD = false;
+            plantData.ACT = false;
+            plantData.VIC = false;
+            plantData.SA = false;
+            plantData.WA = false;
+            plantData.TAS = false;
+            plantData.NT = false;
+            return plantData;
+        }).filter((plant) => plant.plantSeason.includes("Summer"));
+    
+        // Loop over each state individually
+    seasonPlants.forEach(plant => {
+      plant.plantLocation.forEach(location => {
+        if (location === 'NSW') {
+          plant.NSW = true;
+        } else if (location === 'QLD') {
+          plant.QLD = true;
+        } else if (location === 'ACT') {
+          plant.ACT = true;
+        } else if (location === 'VIC') {
+          plant.VIC = true;
+        } else if (location === 'SA') {
+          plant.SA = true;
+        } else if (location === 'WA') {
+          plant.WA = true;
+        } else if (location === 'TAS') {
+          plant.TAS = true;
+        } else if (location === 'NT') {
+          plant.NT = true;
+        }
+      });
+    });
+    res.render("summer", { seasonPlants });
+} catch (error) {
+    res.status(500).json(error);
+}
+});
+
 module.exports = router;
