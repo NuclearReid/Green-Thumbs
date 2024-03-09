@@ -338,6 +338,8 @@ router.get("/addPlant", (req, res) => {
 });
 
 ////// the season routes   ////////////
+
+// summer //
 router.get("/summer", async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
@@ -383,5 +385,148 @@ router.get("/summer", async (req, res) => {
     res.status(500).json(error);
 }
 });
+
+// autumn //
+router.get("/autumn", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const seasonPlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize state flags for each plant
+            plantData.NSW = false;
+            plantData.QLD = false;
+            plantData.ACT = false;
+            plantData.VIC = false;
+            plantData.SA = false;
+            plantData.WA = false;
+            plantData.TAS = false;
+            plantData.NT = false;
+            return plantData;
+        }).filter((plant) => plant.plantSeason.includes("Autumn"));
+    
+        // Loop over each state individually
+    seasonPlants.forEach(plant => {
+      plant.plantLocation.forEach(location => {
+        if (location === 'NSW') {
+          plant.NSW = true;
+        } else if (location === 'QLD') {
+          plant.QLD = true;
+        } else if (location === 'ACT') {
+          plant.ACT = true;
+        } else if (location === 'VIC') {
+          plant.VIC = true;
+        } else if (location === 'SA') {
+          plant.SA = true;
+        } else if (location === 'WA') {
+          plant.WA = true;
+        } else if (location === 'TAS') {
+          plant.TAS = true;
+        } else if (location === 'NT') {
+          plant.NT = true;
+        }
+      });
+    });
+    res.render("autumn", { seasonPlants });
+} catch (error) {
+    res.status(500).json(error);
+}
+});
+
+// winter //
+router.get("/winter", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const seasonPlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize state flags for each plant
+            plantData.NSW = false;
+            plantData.QLD = false;
+            plantData.ACT = false;
+            plantData.VIC = false;
+            plantData.SA = false;
+            plantData.WA = false;
+            plantData.TAS = false;
+            plantData.NT = false;
+            return plantData;
+        }).filter((plant) => plant.plantSeason.includes("Winter"));
+    
+        // Loop over each state individually
+    seasonPlants.forEach(plant => {
+      plant.plantLocation.forEach(location => {
+        if (location === 'NSW') {
+          plant.NSW = true;
+        } else if (location === 'QLD') {
+          plant.QLD = true;
+        } else if (location === 'ACT') {
+          plant.ACT = true;
+        } else if (location === 'VIC') {
+          plant.VIC = true;
+        } else if (location === 'SA') {
+          plant.SA = true;
+        } else if (location === 'WA') {
+          plant.WA = true;
+        } else if (location === 'TAS') {
+          plant.TAS = true;
+        } else if (location === 'NT') {
+          plant.NT = true;
+        }
+      });
+    });
+    res.render("winter", { seasonPlants });
+} catch (error) {
+    res.status(500).json(error);
+}
+});
+
+// spring //
+router.get("/spring", async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const seasonPlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize state flags for each plant
+            plantData.NSW = false;
+            plantData.QLD = false;
+            plantData.ACT = false;
+            plantData.VIC = false;
+            plantData.SA = false;
+            plantData.WA = false;
+            plantData.TAS = false;
+            plantData.NT = false;
+            return plantData;
+        }).filter((plant) => plant.plantSeason.includes("Spring"));
+    
+        // Loop over each state individually
+    seasonPlants.forEach(plant => {
+      plant.plantLocation.forEach(location => {
+        if (location === 'NSW') {
+          plant.NSW = true;
+        } else if (location === 'QLD') {
+          plant.QLD = true;
+        } else if (location === 'ACT') {
+          plant.ACT = true;
+        } else if (location === 'VIC') {
+          plant.VIC = true;
+        } else if (location === 'SA') {
+          plant.SA = true;
+        } else if (location === 'WA') {
+          plant.WA = true;
+        } else if (location === 'TAS') {
+          plant.TAS = true;
+        } else if (location === 'NT') {
+          plant.NT = true;
+        }
+      });
+    });
+    res.render("spring", { seasonPlants });
+} catch (error) {
+    res.status(500).json(error);
+}
+});
+
+///// end of season routes /////
 
 module.exports = router;
