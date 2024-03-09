@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   background-color: #ecdbbb6e;
 }
@@ -9,12 +13,9 @@ body {
 }
 .slick-prev {
   left: 25px;
- 
 }
 .slick-next {
   right: 25px;
-  
-
 }
 
 .slick-prev:before,
@@ -22,7 +23,6 @@ body {
   font-size: 30px;
 }
 
-.slick-slide{
-  height:40%;
-
+.slick-slide {
+  height: 40%;
 }
