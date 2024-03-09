@@ -11,6 +11,7 @@
             </p>
             <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
               {{!--    new post form    --}}
+              {{#if logged_in}}
               <form class="newPost">
                 <div class="mb-3">
                     <label for="text" class="form-label">Title</label>
@@ -22,6 +23,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Post!</button>
             </form>
+            {{/if}}
 
           {{!-- --------------------------------- --}}
               <!-- blogs start here -->
@@ -45,7 +47,7 @@
 
                     <!-- date puplished here -->
                     <time datetime="2024-03-11" class="text-gray-500"
-                      >Mar 11, 2024</time
+                      >{{format_date published_at}}</time
                     >
                     <div>
                       <div class="drawer drawer-end">
@@ -105,6 +107,7 @@
                                       class="flex items-center space-x-5"
                                     ></div>
                                   {{!--  I'll use this for the logic for the comment btn --}}
+                                  
                                     <div class="flex-shrink-0">
                                       <button
                                         type="submit"
@@ -158,7 +161,8 @@
                         <p class="font-semibold text-gray-900">
                           <a href="#">
                             <span class="absolute inset-0"></span>
-                            Green Thumbs
+                            {{blog.user.userName}}
+                            {{user.userName}}
                           </a>
                         </p>
                       </div>
