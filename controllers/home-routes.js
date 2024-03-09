@@ -49,6 +49,29 @@ router.get("/profile", async (req, res) => {
   }
 });
 
+router.get("/blogs", async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['userName'],
+        }
+      ]
+    });
+
+    const allBlogs = dbBlogData.map((allBlogs) => allBlogs.get({plain: true}));
+    console.log(allBlogs);
+    res.render('blogs',{
+      allBlogs,
+      logged_in: req.session.logged_in
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
+
 ////// the states routes   ////////////
 router.get("/vic", async (req, res) => {
   try {

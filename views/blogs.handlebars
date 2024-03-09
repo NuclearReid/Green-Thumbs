@@ -31,8 +31,24 @@
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
             <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+              {{!--    new post form    --}}
+              {{#if logged_in}}
+              <form class="newPost">
+                <div class="mb-3">
+                    <label for="text" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="blog-title" placeholder="New Blog Post">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Content</label>
+                    <textarea class="form-control" id="blog-text" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post!</button>
+            </form>
+            {{/if}}
 
+          {{!-- --------------------------------- --}}
               <!-- blogs start here -->
+              {{#each allBlogs as |blog|}}
 
               <article class="relative isolate flex flex-col gap-8 lg:flex-row">
                 <div
@@ -52,7 +68,7 @@
 
                     <!-- date puplished here -->
                     <time datetime="2024-03-11" class="text-gray-500"
-                      >Mar 11, 2024</time
+                      >{{format_date published_at}}</time
                     >
                     <div>
                       <div class="drawer drawer-end">
@@ -90,7 +106,8 @@
                                     <textarea
                                       rows="3"
                                       name="comment"
-                                      id="comment"
+                                      {{!-- make each one the comment of the blog so i can target that for adding the comments --}}
+                                      id="comment-{{id}}"
                                       class="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                       placeholder="Add your comment..."
                                     ></textarea>
@@ -110,7 +127,8 @@
                                     <div
                                       class="flex items-center space-x-5"
                                     ></div>
-
+                                  {{!--  I'll use this for the logic for the comment btn --}}
+                                  
                                     <div class="flex-shrink-0">
                                       <button
                                         type="submit"
@@ -141,15 +159,16 @@
                     >
                       <a href="#">
                         <span class="absolute inset-0"></span>
-                        Adding Plants to Your Space
+                        {{title}}
                       </a>
                     </h3>
                     <p class="mt-5 text-sm leading-6 text-gray-600">
-                      In today's fast-paced world, a touch of nature can work
+                      {{body}}
+                      {{!-- In today's fast-paced world, a touch of nature can work
                       wonders. Adding a plant to your home or workspace not only
                       enhances aesthetics but also promotes well-being. From
                       purifying the air to reducing stress, the benefits are
-                      abundant.
+                      abundant. --}}
                     </p>
                   </div>
                   <div class="mt-6 flex border-t border-gray-900/5 pt-6">
@@ -163,7 +182,8 @@
                         <p class="font-semibold text-gray-900">
                           <a href="#">
                             <span class="absolute inset-0"></span>
-                            Green Thumbs
+                            {{blog.user.userName}}
+                            {{user.userName}}
                           </a>
                         </p>
                       </div>
@@ -171,9 +191,11 @@
                   </div>
                 </div>
               </article>
+              {{/each}}
 
               <!-- More blogs... -->
             </div>
           </div>
         </div>
       </div>
+<script src="./js/newPost.js"></script>
