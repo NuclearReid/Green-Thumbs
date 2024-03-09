@@ -42,7 +42,10 @@
                     <label for="text" class="form-label">Content</label>
                     <textarea class="form-control" id="blog-text" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Post!</button>
+                <button type="submit" 
+                        value="blogPost" 
+                        class="btn btn-primary">
+                        Post!</button>
             </form>
             {{/if}}
 
@@ -64,6 +67,7 @@
                   ></div>
                 </div>
                 <div>
+
                   <div class="flex items-center gap-x-4 text-xs">
 
                     <!-- date puplished here -->
@@ -96,7 +100,11 @@
                           >
                             <div class="flex items-start space-x-4 bg-base-100">
                               <div class="min-w-0 flex-1">
-                                <form action="#" class="relative">
+                                {{!-- !!!!!!!!!!!!the comment form!!!!!!!!!!!!! --}}
+                                <form action="#" 
+                                      class="relative newComment"
+                                      id="postId"
+                                      data-blogid="{{id}}">
                                   <div
                                     class="overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600"
                                   >
@@ -106,8 +114,7 @@
                                     <textarea
                                       rows="3"
                                       name="comment"
-                                      {{!-- make each one the comment of the blog so i can target that for adding the comments --}}
-                                      id="comment-{{id}}"
+                                      id="comment-text"
                                       class="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                       placeholder="Add your comment..."
                                     ></textarea>
@@ -132,9 +139,10 @@
                                     <div class="flex-shrink-0">
                                       <button
                                         type="submit"
+                                        value="comment"
                                         class="inline-flex items-center rounded-md bg-lime-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                       >
-                                        comment
+                                        Comment
                                       </button>
                                     </div>
                                   </div>
@@ -143,9 +151,9 @@
                             </div>
                             <ul>
                               <!-- Sidebar content here -->
-                              <li class="mt-3">comment shows here</li>
-                              <li class="mt-3">comment shows here</li>
-                              <li class="mt-3">comment shows here</li>
+                              <li class="mt-3">{{id}}</li>
+                              <li class="mt-3">{{title}}</li>
+                              <li class="mt-3">{{body}}</li>
                             </ul>
                           </div>
                         </div>
@@ -198,4 +206,5 @@
           </div>
         </div>
       </div>
+      {{>footer}}
 <script src="./js/newPost.js"></script>

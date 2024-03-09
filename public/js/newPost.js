@@ -1,7 +1,10 @@
 
 const newPostFormHandler = async (event) => {
     event.preventDefault();
-  
+
+    let action = event.submitter.value;
+    if(action === 'blogPost'){
+      console.log('in newPost.js')
     // gets the values from the new post form
     const title = document.querySelector('#blog-title').value;
     const body = document.querySelector('#blog-text').value;
@@ -17,7 +20,8 @@ const newPostFormHandler = async (event) => {
       });
       if (response.ok) {
         // If successful, redirect the browser to the home page
-        location.reload();
+        // document.location.reload();
+     }
     }
   };
   

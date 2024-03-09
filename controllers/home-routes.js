@@ -61,7 +61,7 @@ router.get("/blogs", async (req, res) => {
     });
 
     const allBlogs = dbBlogData.map((allBlogs) => allBlogs.get({plain: true}));
-    console.log(allBlogs);
+    // console.log(allBlogs);
     res.render('blogs',{
       allBlogs,
       logged_in: req.session.logged_in
