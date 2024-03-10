@@ -19,12 +19,12 @@ We wanted to crowdsource the knowledge of thousands of gardeners from across Aus
 ## Installation
 
 As a developer, to install the program, developers should follow the following steps:
-1. Download the code repository from GitHub: https://github.com/NuclearReid/Green-Thumbs
-2. Open an integrated terminal and install the required packages (for example, using: npm install)
-3. Initialise mySQL and source the db/schema.sql file
-4. Run npm start on your integrated terminal
+1. Download the code repository from GitHub: https://github.com/NuclearReid/Green-Thumbs.
+2. Open an integrated terminal and install the required packages (for example, using: npm install).
+3. Initialise mySQL and source the db/schema.sql file.
+4. Run npm start on your integrated terminal.
 
-If successful, the program should then run in your local environment (for example: http://localhost:3001/)
+If successful, the program should then run in your local environment (for example: http://localhost:3001/).
 
 
 ## Usage
@@ -47,13 +47,13 @@ On the main site, users can navigate to their relevant location in Australia by 
 
 ## Credits
 
-This project has been the work of four main collaborators (GitHub Username)
-Reid
-Yousra (Yousra-Kamal)
-Stacy
-Alec  
+This project has been the work of four main collaborators
+[Reid](NuclearReid),
+[Yousra](https://github.com/Yousra-Kamal),
+[Stacey](https://github.com/Staceka1) and
+[Alec](https://github.com/a-r3n). 
 
-It has also only been possible due to a number of third-party assets, libraries and technologies, including Node.js, Express, mySQL, Swiper.js
+It has also only been possible due to a number of third-party assets, libraries and technologies, including Node.js, Express, mySQL, Slick.
 
 Thank you to all the people that have worked on these projects. 
 
