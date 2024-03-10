@@ -1,251 +1,237 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Green Thumbs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100..700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <style>
-      body {
-        background-color: rgba(241, 229, 207, 0.432);
-      }
-    </style>
-    <script>
-      tailwind.config = {
-        plugins: [require("@tailwindcss/forms")],
-      };
-    </script>
-  </head>
-  <body> -->
-
-    <!-- Section 2  -->
-    <div class="py-24 sm:py-32">
-
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto lg:mx-0">
-          <h2
-            style="font-family: Montagu Slab; font-size: 30px"
-            class="font-bold text-gray-900 sm:text-4xl text-center"
-          >
-            Welcome to Green Thumbs! <br />
-          </h2>
-
- <div class="container">
-      <!-- User details section -->
-      {{!-- <h2>Welcome, {{ chosenUser.userName }}!</h2>
-      <p>Member ID: {{ chosenUser.id }}</p>
-      <p>Email: {{ chosenUser.email }}</p>
- --}}
-
-<div>
-  <div class="px-4 sm:px-0">
-    <h3 class="text-base font-semibold leading-7 text-gray-900">Account Details</h3>
+<div
+  class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8"
+>
+  <img
+    style="opacity: 0.6;"
+    src="./images/bg.jpeg"
+    alt="header-background"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
+  <div
+    class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+    aria-hidden="true"
+  >
+    <div
+      class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+    ></div>
   </div>
-  <div class="mt-6 border-t border-gray-100">
-    <dl class="divide-y divide-gray-100">
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Member ID</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.id}}</dd>
-      </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Username</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.userName}}</dd>
-      </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{chosenUser.email}}</dd>
-      </div>
-      {{!-- <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">Favourite Plants</dt>
-        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-          <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
-            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-              <div class="flex w-0 flex-1 items-center">
+  <div
+    class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+    aria-hidden="true"
+  >
+    <div
+      class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+    ></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2
+      style="font-family: Montagu Slab; "
+      class="text-3xl font-bold tracking-tight text-white sm:text-3xl pt-12"
+    >
+      Welcome to Green Thumbs
+      {{chosenUser.userName}}!</h2>
 
-                <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                  <span class="truncate font-medium">Name of Plant 1</span>
-                </div>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Delete</a>
-              </div>
-            </li>
-            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-              <div class="flex w-0 flex-1 items-center">
-
-                <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                  <span class="truncate font-medium">Name of plant 2</span>
-                </div>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Delete</a>
-              </div>
-            </li>
-          </ul>
-        </dd>
-      </div> --}}
-    </dl>
   </div>
 </div>
 
-        <!-- Pick seeds by State -->
-        <div id="state-section" class="py-24 sm:py-26">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl lg:mx-0">
-              <h2
-                style="font-family: Montagu Slab; font-size: 25px"
-                class="font-bold text-gray-900 sm:text-4xl"
-              >
-                Pick seeds by State
-              </h2>
-            </div>
-            <ul
-              role="list"
-              class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-            >
-              <li>
-                <a href="/vic">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-VIC.png"
-                    alt="vic state"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/nsw">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-NSW.png"
-                    alt="nsw state"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/qld">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-QLD.png"
-                    alt="qld state"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/sa">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-SA.png"
-                    alt="sa state"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/wa">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-WA.png"
-                    alt="wa state"
-                  />
-                </a>
-              </li>
-              {{!--     Tas    --}}
-              <li>
-                <a href="/tas">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-TAS.png"
-                    alt="tas state"
-                  />
-                </a>
-              </li>
-              {{!-- ACT --}}
-              <li>
-                <a href="/act">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-ACT.png"
-                    alt="act state"
-                  />
-                </a>
-              </li>
-              {{!--     NT    --}}
-              <li>
-                <a href="/nt">
-                  <img
-                    class="aspect-[3/2] w-full rounded-2xl"
-                    src="./images/Map-NT.png"
-                    alt="nt state"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
+{{!-- <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="mx-auto lg:mx-0">
+    <h2
+      style="font-family: Montagu Slab; font-size: 30px"
+      class="font-bold text-gray-900 sm:text-4xl text-center"
+    >
+      Welcome to Green Thumbs
+      {{chosenUser.userName}}!
+      <br />
+    </h2>
+
+    <div class="px-4 sm:px-0">
+      <h3 class="text-base font-semibold leading-7 text-gray-900">Account
+        Details</h3>
+    </div>
+    <div class="mt-6 border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-900">Member ID</dt>
+          <dd
+            class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+          >{{chosenUser.id}}</dd>
         </div>
-        <!--  Pick seeds by Season-->
-        <div id="season-section" class="py-20 sm:py-26">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl lg:mx-0">
-              <h2
-                style="font-family: Montagu Slab; font-size: 25px"
-                class="font-bold text-gray-900 sm:text-4xl"
-              >
-                Pick seeds by Season
-              </h2>
-            </div>
-            <ul
-              role="list"
-              class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
-            >
-              <li>
-                <a href="/summer">
-                  <img
-                    class="aspect-[4/3] w-full rounded-2xl"
-                    src="./images/summer.png"
-                    alt="summer"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/autumn">
-                  <img
-                    class="aspect-[4/3] w-full rounded-2xl"
-                    src="./images/autumn.png"
-                    alt="autumn"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/winter">
-                  <img
-                    class="aspect-[4/3] w-full rounded-2xl"
-                    src="./images/winter.png"
-                    alt="winter"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/spring">
-                  <img
-                    class="aspect-[4/3] w-full rounded-2xl"
-                    src="./images/spring.png"
-                    alt="spring"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-900">Username</dt>
+          <dd
+            class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+          >{{chosenUser.userName}}</dd>
         </div>
-      </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
+          <dd
+            class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+          >{{chosenUser.email}}</dd>
+        </div>
+
+      </dl>
     </div>
 
-    <!-- Footer-->
-   {{!-- {{> footer}} --}}
-  <!-- </body>
-</html> -->
+  </div>
+</div> --}}
+
+{{! spacing }}
+<div class="py-20"></div>
+
+<!--  Pick seeds by Season-->
+<div id="season-section" class="py-20 sm:py-26">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2
+        style="font-family: Montagu Slab; font-size: 25px"
+        class="font-bold text-gray-900 sm:text-4xl py-8"
+      >
+        Pick seeds by Season
+      </h2>
+    </div>
+    <ul
+      role="list"
+      class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
+    >
+      <li>
+        <a href="/summer">
+          <img
+            class="aspect-[4/3] w-full rounded-2xl"
+            src="./images/summer.png"
+            alt="summer"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/autumn">
+          <img
+            class="aspect-[4/3] w-full rounded-2xl"
+            src="./images/autumn.png"
+            alt="autumn"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/winter">
+          <img
+            class="aspect-[4/3] w-full rounded-2xl"
+            src="./images/winter.png"
+            alt="winter"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/spring">
+          <img
+            class="aspect-[4/3] w-full rounded-2xl"
+            src="./images/spring.png"
+            alt="spring"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{{! spacing }}
+<div class="py-20"></div>
+
+<!-- Pick seeds by State -->
+<div id="state-section" class="py-24 sm:py-26">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2
+        style="font-family: Montagu Slab; font-size: 25px"
+        class="font-bold text-gray-900 sm:text-4xl py-6"
+      >
+        Pick seeds by State
+      </h2>
+    </div>
+    <ul
+      role="list"
+      class="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+    >
+      <li>
+        <a href="/vic">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-VIC.png"
+            alt="vic state"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/nsw">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-NSW.png"
+            alt="nsw state"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/qld">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-QLD.png"
+            alt="qld state"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/sa">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-SA.png"
+            alt="sa state"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/wa">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-WA.png"
+            alt="wa state"
+          />
+        </a>
+      </li>
+      {{!     Tas    }}
+      <li>
+        <a href="/tas">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-TAS.png"
+            alt="tas state"
+          />
+        </a>
+      </li>
+      {{! ACT }}
+      <li>
+        <a href="/act">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-ACT.png"
+            alt="act state"
+          />
+        </a>
+      </li>
+      {{!     NT    }}
+      <li>
+        <a href="/nt">
+          <img
+            class="aspect-[3/2] w-full rounded-2xl"
+            src="./images/Map-NT.png"
+            alt="nt state"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{{! spacing }}
+<div class="py-20"></div>
