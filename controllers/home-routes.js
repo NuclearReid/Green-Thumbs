@@ -62,16 +62,9 @@ router.get("/blogs", withAuth, async (req, res) => {
       order: [['id', 'DESC']]
     });
 
-    const allBlogs = dbBlogData.map((blog) => {
-      const plainBlog = blog.get({ plain: true });
+    const allBlogs = dbBlogData.map((blog) => blog.get({ plain: true }));
       // Check if user information is included
-      if (blog.User) {
-        plainBlog.user = blog.User.userName;
-      }
-      return plainBlog;
-    });
-
-    console.log(allBlogs);
+    // console.log(allBlogs);
     res.render('blogs',{
       allBlogs,
       logged_in: req.session.logged_in
