@@ -4,7 +4,7 @@ const Plant = require('./Plant');
 const Comment = require('./Comment');
 
 User.hasMany(Blog, {
-  foreignkey: "user_id",
+  foreignKey: "user_id",
   onDelete: 'CASCADE'
 });
 
@@ -16,10 +16,10 @@ Blog.hasMany(Comment, {
   onDelete: 'CASCADE',
 });
 
-User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-})
+// User.hasMany(Comment, {
+//   foreignKey: 'user_id',
+//   onDelete: 'CASCADE'
+// })
 
 Comment.belongsTo(Blog, {
   foreignKey: 'blog_id'
