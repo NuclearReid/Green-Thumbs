@@ -350,6 +350,48 @@ router.get("/act", withAuth, async (req, res) => {
       res.status(500).json(error);
   }
 });
+
+
+router.get("/nt", withAuth, async (req, res) => {
+  try {
+    const dbAllPlantData = await Plant.findAll();
+    const statePlants = dbAllPlantData
+        .map((plant) => {
+            const plantData = plant.get({ plain: true });
+            // Initialize season flags for each plant
+            plantData.spring = false;
+            plantData.summer = false;
+            plantData.winter = false;
+            plantData.autumn = false;
+            return plantData;
+        }).filter((plant) => plant.plantLocation.includes("NT"));
+    // I had to do a loop in a loop to go over each spot in the season array individually
+
+    statePlants.forEach(plant => {
+      // console.log(plantSeasonArray);
+      plant.plantSeason.forEach(season => {
+
+        console.log('whatever');
+        console.log('plant.plantSeason ',plant.plantSeason);
+        if (season === 'Spring') {
+          plant.spring = true;
+        } else if (season === 'Summer') {
+          plant.summer = true;
+        } else if (season === 'Winter') {
+          plant.winter = true;
+        } else if (season === 'Autumn') {
+          plant.autumn = true;
+        }
+      });
+    });
+
+
+    res.render("nt", { statePlants, logged_in: req.session.logged_in });
+  } catch (error) {
+      res.status(500).json(error);
+  }
+});
+
 /////////////////////////////////
 
 
