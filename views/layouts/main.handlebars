@@ -20,6 +20,9 @@
     <link href="css/output.css" rel="stylesheet" />
   </head>
   <body>
+    {{#if logged_in}}
+      {{>header}}
+    {{/if}}
     {{{body}}}
 
     {{! slick script it requires jquery and slick.js}}
