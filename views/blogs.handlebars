@@ -1,4 +1,4 @@
-        <header style="background-color: #3c3d1c">
+        {{!-- <header style="background-color: #3c3d1c">
   <nav class="mx-auto flex items-center justify-between gap-x-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="/profile" class="-m-1.5 p-1.5">
@@ -17,7 +17,7 @@
       <a href="/" id="logout" class="text-md font-semibold leading-6 px-4 py-2" style="background-color: #92be63; color: #3c3d1c; border-radius: 4px;">Logout</a>
     </div>
   </nav>
-</header>
+</header> --}}
 
 <div class="py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -32,7 +32,6 @@
             </p>
             <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
               {{!--    new post form    --}}
-              {{#if logged_in}}
               <form class="newPost">
                 <div class="mb-3">
                     <label for="text" class="form-label">Title</label>
@@ -42,9 +41,12 @@
                     <label for="text" class="form-label">Content</label>
                     <textarea class="form-control" id="blog-text" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Post!</button>
+                <button type="submit" 
+                        value="blogPost" 
+                        class="btn btn-primary">
+                        Post!</button>
             </form>
-            {{/if}}
+
 
           {{!-- --------------------------------- --}}
               <!-- blogs start here -->
@@ -64,6 +66,7 @@
                   ></div>
                 </div>
                 <div>
+
                   <div class="flex items-center gap-x-4 text-xs">
 
                     <!-- date puplished here -->
@@ -96,7 +99,11 @@
                           >
                             <div class="flex items-start space-x-4 bg-base-100">
                               <div class="min-w-0 flex-1">
-                                <form action="#" class="relative">
+                                {{!-- !!!!!!!!!!!!the comment form!!!!!!!!!!!!! --}}
+                                <form action="#" 
+                                      class="relative newComment"
+                                      id="postId"
+                                      data-blogid="{{id}}">
                                   <div
                                     class="overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600"
                                   >
@@ -106,8 +113,7 @@
                                     <textarea
                                       rows="3"
                                       name="comment"
-                                      {{!-- make each one the comment of the blog so i can target that for adding the comments --}}
-                                      id="comment-{{id}}"
+                                      id="comment-text"
                                       class="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                       placeholder="Add your comment..."
                                     ></textarea>
@@ -132,9 +138,10 @@
                                     <div class="flex-shrink-0">
                                       <button
                                         type="submit"
+                                        value="comment"
                                         class="inline-flex items-center rounded-md bg-lime-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                       >
-                                        comment
+                                        Comment
                                       </button>
                                     </div>
                                   </div>
@@ -143,9 +150,9 @@
                             </div>
                             <ul>
                               <!-- Sidebar content here -->
-                              <li class="mt-3">comment shows here</li>
-                              <li class="mt-3">comment shows here</li>
-                              <li class="mt-3">comment shows here</li>
+                              <li class="mt-3">{{id}}</li>
+                              <li class="mt-3">{{title}}</li>
+                              <li class="mt-3">{{body}}</li>
                             </ul>
                           </div>
                         </div>
@@ -198,4 +205,5 @@
           </div>
         </div>
       </div>
+      {{!-- {{>footer}} --}}
 <script src="./js/newPost.js"></script>
