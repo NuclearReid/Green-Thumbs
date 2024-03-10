@@ -17,10 +17,12 @@ const PORT = process.env.PORT || 3001;
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
+// Set up sessions with cookies
 const sess = {
   secret: "Super secret secret",
   cookie: {
-    maxAge: 300000,
+    // Stored in milliseconds
+    maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
     httpOnly: true,
     secure: false,
     sameSite: "strict",

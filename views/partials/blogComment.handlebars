@@ -1,12 +1,44 @@
-{{#each commentPost as |comment|}}
-{{!-- this is where i'll render the comments when they're in the database --}}
-<section class="card">
-    <div class="card mb-3" style="width: 18rem;">
-        <div class="card-body">
-            <p class="card-text">{{commentPost}}</p>
-            {{!-- I can't get userName to work yet and I don't know why --}}
-             <p class="card-text">Created by: {{comment.user.userName}} <br> On: {{format_date date_created}}</p>
-        </div>
+<div class="bg-white py-10 sm:py-10">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+    <div
+      class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+    >
+      {{#each commentPost as |comment|}}
+        <article
+          class="bg-slate-100 flex max-w-xl flex-col items-start justify-between"
+        >
+          <div class="flex items-center gap-x-4 text-xs">
+            <time datetime="2020-03-16" class="text-gray-500">{{format_date
+                date_created
+              }}</time>
+
+          </div>
+          <div class="group relative">
+
+            <p
+              class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
+            >{{commentPost}}</p>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <img
+              src="../images/GreenThumbs.png"
+              alt="green thumbs logo"
+              class="h-10 w-10 rounded-full bg-gray-50"
+            />
+            <div class="text-sm leading-6">
+              <p class="font-semibold text-gray-900">
+                <a href="#">
+                  <span class="absolute inset-0"></span>
+                  {{comment.user.userName}}
+                </a>
+              </p>
+
+            </div>
+          </div>
+        </article>
+      {{/each}}
+      <!-- More posts... -->
     </div>
-</section>
-{{/each}}
+  </div>
+</div>
