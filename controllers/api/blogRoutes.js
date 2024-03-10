@@ -6,12 +6,15 @@ router.post("/", async (req, res) => {
     console.log('in blog api');
     const addBlog = await Blog.create({
       ...req.body,
+      user_id: req.session.user_id,
     });
     res.status(200).json(addBlog);
   } catch (err) {
     res.status(500).json({ message: "Blog creation failed", error: err });
   }
 });
+
+
 
 router.post('/comment', async (req, res) => {
   try {
