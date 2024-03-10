@@ -30,7 +30,7 @@ const newCommentFormHandler = async (event) => {
       if (response.ok) {
         // If it talks to the api correctly
         // reloads the page so the new comment will be loaded up to/displayed
-        // document.location.reload();
+        document.location.reload();
       } 
     }
   };

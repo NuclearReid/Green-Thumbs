@@ -1,4 +1,4 @@
-        <header style="background-color: #3c3d1c">
+        {{!-- <header style="background-color: #3c3d1c">
   <nav class="mx-auto flex items-center justify-between gap-x-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="/profile" class="-m-1.5 p-1.5">
@@ -17,7 +17,7 @@
       <a href="/" id="logout" class="text-md font-semibold leading-6 px-4 py-2" style="background-color: #92be63; color: #3c3d1c; border-radius: 4px;">Logout</a>
     </div>
   </nav>
-</header>
+</header> --}}
 
 <div class="py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -32,7 +32,6 @@
             </p>
             <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
               {{!--    new post form    --}}
-              {{#if logged_in}}
               <form class="newPost">
                 <div class="mb-3">
                     <label for="text" class="form-label">Title</label>
@@ -47,7 +46,7 @@
                         class="btn btn-primary">
                         Post!</button>
             </form>
-            {{/if}}
+
 
           {{!-- --------------------------------- --}}
               <!-- blogs start here -->
@@ -206,5 +205,5 @@
           </div>
         </div>
       </div>
-      {{>footer}}
+      {{!-- {{>footer}} --}}
 <script src="./js/newPost.js"></script>

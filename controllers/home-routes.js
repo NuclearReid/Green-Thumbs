@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Blog, Plant, User } = require("../models");
+const withAuth = require("../utils/auth");
 // const withAuth = require('../utils/auth');
 
 router.get("/", (req, res) => {
@@ -26,7 +27,7 @@ router.get("/signup", (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.user_id, {
       attributes: {exclude: ['password']}
@@ -49,7 +50,7 @@ router.get("/profile", async (req, res) => {
   }
 });
 
-router.get("/blogs", async (req, res) => {
+router.get("/blogs", withAuth, async (req, res) => {
   try {
     const dbBlogData = await Blog.findAll({
       include: [
@@ -57,7 +58,8 @@ router.get("/blogs", async (req, res) => {
           model: User,
           attributes: ['userName'],
         }
-      ]
+      ],
+      order: [['createdAt', 'DESC']]
     });
 
     const allBlogs = dbBlogData.map((allBlogs) => allBlogs.get({plain: true}));
@@ -73,7 +75,7 @@ router.get("/blogs", async (req, res) => {
 });
 
 ////// the states routes   ////////////
-router.get("/vic", async (req, res) => {
+router.get("/vic", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -107,7 +109,7 @@ router.get("/vic", async (req, res) => {
 }
 });
 
-router.get("/qld", async (req, res) => {
+router.get("/qld", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -147,7 +149,7 @@ router.get("/qld", async (req, res) => {
   }
 });
 
-router.get("/sa", async (req, res) => {
+router.get("/sa", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -188,7 +190,7 @@ router.get("/sa", async (req, res) => {
 });
 
 
-router.get("/wa", async (req, res) => {
+router.get("/wa", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -228,7 +230,7 @@ router.get("/wa", async (req, res) => {
   }
 });
 
-router.get("/nsw", async (req, res) => {
+router.get("/nsw", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -269,7 +271,7 @@ router.get("/nsw", async (req, res) => {
 });
 
 
-router.get("/tas", async (req, res) => {
+router.get("/tas", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -309,7 +311,7 @@ router.get("/tas", async (req, res) => {
   }
 });
 
-router.get("/act", async (req, res) => {
+router.get("/act", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const statePlants = dbAllPlantData
@@ -352,7 +354,7 @@ router.get("/act", async (req, res) => {
 
 
 // add a plant page
-router.get("/addPlant", (req, res) => {
+router.get("/addPlant", withAuth, (req, res) => {
   try {
     res.render("addPlant");
   } catch (error) {
@@ -363,7 +365,7 @@ router.get("/addPlant", (req, res) => {
 ////// the season routes   ////////////
 
 // summer //
-router.get("/summer", async (req, res) => {
+router.get("/summer", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const seasonPlants = dbAllPlantData
@@ -410,7 +412,7 @@ router.get("/summer", async (req, res) => {
 });
 
 // autumn //
-router.get("/autumn", async (req, res) => {
+router.get("/autumn", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const seasonPlants = dbAllPlantData
@@ -457,7 +459,7 @@ router.get("/autumn", async (req, res) => {
 });
 
 // winter //
-router.get("/winter", async (req, res) => {
+router.get("/winter", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const seasonPlants = dbAllPlantData
@@ -504,7 +506,7 @@ router.get("/winter", async (req, res) => {
 });
 
 // spring //
-router.get("/spring", async (req, res) => {
+router.get("/spring", withAuth, async (req, res) => {
   try {
     const dbAllPlantData = await Plant.findAll();
     const seasonPlants = dbAllPlantData

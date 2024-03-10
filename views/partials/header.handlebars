@@ -1,41 +1,48 @@
 <header style="background-color: #3c3d1c">
-      <nav
-        class="mx-auto flex items-center justify-between gap-x-6 lg:px-8"
-        aria-label="Global"
-      >
-        <div class="flex lg:flex-1">
-          <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Green Thumbs</span>
-            <img
-              style="max-width: 115px"
-              src="./images/Greenthumb Logo only.png"
-              alt="Your Company"
-            />
-          </a>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <a
-            href="#"
-            class="text-md font-semibold leading-6"
-            style="color: #92be63"
-            >States</a
-          >
-          <a
-            href="/blogs"
-            class="text-md font-semibold leading-6"
-            style="color: #92be63"
-            >Blog</a
-          >
-          <a
-            href="/"
-            id="logout"
-            class="text-md font-semibold leading-6"
-            style="color: #92be63"
-            >logout</a
-          >
-        </div>
-        <!-- spacing -->
-        <div class="flex flex-1 items-center justify-end gap-x-6"></div>
-      </nav>
-      <!-- Mobile menu, show/hide based on menu open state. -->
-    </header>
+  <nav
+    class="mx-auto flex items-center justify-between gap-x-6 lg:px-8"
+    aria-label="Global"
+  >
+    <div class="flex lg:flex-1">
+      <a href="/profile" class="-m-1.5 p-1.5">
+        <span class="sr-only">Green Thumbs</span>
+        <img
+          style="max-width: 115px"
+          src="./images/Greenthumb Logo only.png"
+          alt="Your Company"
+        />
+      </a>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12">
+      <a
+        href="/addPlant"
+        class="text-md font-semibold leading-6"
+        style="color: #92be63"
+      >Add a Plant</a>
+      <a
+        href="/profile#state-section"
+        class="text-md font-semibold leading-6"
+        style="color: #92be63"
+      >Browse by State</a>
+      <a
+        href="/profile#season-section"
+        class="text-md font-semibold leading-6"
+        style="color: #92be63"
+      >Browse by Season</a>
+      <a
+        href="/blogs"
+        class="text-md font-semibold leading-6"
+        style="color: #92be63"
+      >Blog</a>
+    </div>
+    <!-- Right Justified Logout Button -->
+    <div class="flex flex-1 justify-end items-center">
+      <a
+        href="/"
+        id="logout"
+        class="text-md font-semibold leading-6 px-4 py-2"
+        style="background-color: #92be63; color: #3c3d1c; border-radius: 4px;"
+      >Logout</a>
+    </div>
+  </nav>
+</header>
