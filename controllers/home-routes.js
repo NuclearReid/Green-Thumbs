@@ -103,7 +103,7 @@ router.get("/vic", withAuth, async (req, res) => {
         }
       });
     });
-    res.render("vic", { statePlants });
+    res.render("vic", { statePlants,logged_in: req.session.logged_in });
 } catch (error) {
     res.status(500).json(error);
 }
@@ -143,7 +143,7 @@ router.get("/qld", withAuth, async (req, res) => {
     });
 
 
-    res.render("qld", { statePlants });
+    res.render("qld", { statePlants, logged_in: req.session.logged_in });
   } catch (error) {
       res.status(500).json(error);
   }
@@ -183,7 +183,7 @@ router.get("/sa", withAuth, async (req, res) => {
     });
 
 
-    res.render("sa", { statePlants });
+    res.render("sa", { statePlants, logged_in: req.session.logged_in });
   } catch (error) {
       res.status(500).json(error);
   }
@@ -224,7 +224,7 @@ router.get("/wa", withAuth, async (req, res) => {
     });
 
 
-    res.render("wa", { statePlants });
+    res.render("wa", { statePlants, logged_in: req.session.logged_in });
   } catch (error) {
       res.status(500).json(error);
   }
@@ -264,7 +264,7 @@ router.get("/nsw", withAuth, async (req, res) => {
     });
 
 
-    res.render("nsw", { statePlants });
+    res.render("nsw", { statePlants, logged_in: req.session.logged_in });
   } catch (error) {
       res.status(500).json(error);
   }
@@ -305,7 +305,7 @@ router.get("/tas", withAuth, async (req, res) => {
     });
 
 
-    res.render("tas", { statePlants });
+    res.render("tas", { statePlants, logged_in: req.session.logged_in });
   } catch (error) {
       res.status(500).json(error);
   }
@@ -345,7 +345,7 @@ router.get("/act", withAuth, async (req, res) => {
     });
 
 
-    res.render("act", { statePlants });
+    res.render("act", { statePlants, logged_in: req.session.logged_in });
   } catch (error) {
       res.status(500).json(error);
   }
@@ -356,7 +356,7 @@ router.get("/act", withAuth, async (req, res) => {
 // add a plant page
 router.get("/addPlant", withAuth, (req, res) => {
   try {
-    res.render("addPlant");
+    res.render("addPlant", {logged_in: req.session.logged_in});
   } catch (error) {
     res.status(500).json(error);
   }
@@ -405,7 +405,7 @@ router.get("/summer", withAuth, async (req, res) => {
         }
       });
     });
-    res.render("summer", { seasonPlants });
+    res.render("summer", { seasonPlants, logged_in: req.session.logged_in });
 } catch (error) {
     res.status(500).json(error);
 }
@@ -452,7 +452,7 @@ router.get("/autumn", withAuth, async (req, res) => {
         }
       });
     });
-    res.render("autumn", { seasonPlants });
+    res.render("autumn", { seasonPlants, logged_in: req.session.logged_in });
 } catch (error) {
     res.status(500).json(error);
 }
@@ -499,7 +499,7 @@ router.get("/winter", withAuth, async (req, res) => {
         }
       });
     });
-    res.render("winter", { seasonPlants });
+    res.render("winter", { seasonPlants, logged_in: req.session.logged_in });
 } catch (error) {
     res.status(500).json(error);
 }
@@ -546,7 +546,7 @@ router.get("/spring", withAuth, async (req, res) => {
         }
       });
     });
-    res.render("spring", { seasonPlants });
+    res.render("spring", { seasonPlants, logged_in: req.session.logged_in });
 } catch (error) {
     res.status(500).json(error);
 }
