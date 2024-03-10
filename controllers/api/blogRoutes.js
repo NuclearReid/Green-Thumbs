@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog, User } = require("../../models");
+const { Blog, User, Comment } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {
@@ -16,12 +16,14 @@ router.post("/", async (req, res) => {
 router.post('/comment', async (req, res) => {
   try {
       // console.log(req.session.user_id);
-      console.log('in comment api');
+      console.log('in comment api______________________________________________________________');
+
       const addComment = await Comment.create({
           ...req.body,
           user_id: req.session.user_id,
           blog_id: req.body.blog_id,
       });
+     
       res.status(200).json(addComment);
   } catch (error) {
        res.status(500).json(error);

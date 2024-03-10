@@ -1,0 +1,12 @@
+{{#each commentPost as |comment|}}
+{{!-- this is where i'll render the comments when they're in the database --}}
+<section class="card">
+    <div class="card mb-3" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">{{commentPost}}</p>
+            {{!-- I can't get userName to work yet and I don't know why --}}
+             <p class="card-text">Created by: {{comment.user.userName}} <br> On: {{format_date date_created}}</p>
+        </div>
+    </div>
+</section>
+{{/each}}

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog, Plant, User } = require("../models");
+const { Blog, Plant, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 // const withAuth = require('../utils/auth');
 
@@ -59,11 +59,19 @@ router.get("/blogs", withAuth, async (req, res) => {
           attributes: ['userName'],
         }
       ],
-      order: [['createdAt', 'DESC']]
+      order: [['id', 'DESC']]
     });
 
-    const allBlogs = dbBlogData.map((allBlogs) => allBlogs.get({plain: true}));
-    // console.log(allBlogs);
+    const allBlogs = dbBlogData.map((blog) => {
+      const plainBlog = blog.get({ plain: true });
+      // Check if user information is included
+      if (blog.User) {
+        plainBlog.user = blog.User.userName;
+      }
+      return plainBlog;
+    });
+
+    console.log(allBlogs);
     res.render('blogs',{
       allBlogs,
       logged_in: req.session.logged_in
@@ -73,6 +81,61 @@ router.get("/blogs", withAuth, async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+// This will be used when someone clicks on a specific blog post
+    // take a look at /partials/blogpost-details.handlebars for a little more how it works
+        // essentially, when you click on the 'comment' button, the href is '/blogpost/{{blogPost.id}}'
+        // then this .get() is reached
+        router.get('/blogpost/:id', withAuth, async (req, res) => {
+          try {
+              // Find the blog post by its ID and include the associated user
+              const dbBlogPostData = await Blog.findByPk(req.params.id, {
+                  include: [
+                      {
+                          model: User,
+                          attributes: ['userName'],
+                      },
+                  ],
+              });
+              console.log('dbBlogPostData');
+              console.log(dbBlogPostData);
+
+              // Finds all comments related to the blog post
+              const dbCommentData = await Comment.findAll({
+                  // Filter by the blog post ID (blogPost_id is a key in in the Comment model)
+                  where: { blog_id: req.params.id }, 
+                  include: [
+                      {
+                          model: User,
+                          attributes: ['userName'],
+                      },
+                  ],
+              });   
+              console.log('dbcommentData')
+              console.log(dbCommentData);
+              // serialise all the comments (this needs .map cause there can be more than 1 comments)
+              const selectComments = dbCommentData.map(comment => comment.get({ plain: true }));
+      
+              // serialize the blog post. only 1 blog post so it doesn't need a .map()
+              const selectBlog = dbBlogPostData.get({ plain: true });
+              // console.log(selectBlog);
+              // console.log(selectComments);
+              // console.log(dbBlogPostData);
+              // Render the view with the blog post and associated comments
+              // console.log(selectComments);
+              // console.log(selectBlog);
+              res.render('comment', {
+                  ...selectBlog,
+                  // sends the comment data to comment.handlebars
+                  commentPost: selectComments, 
+                  logged_in: req.session.logged_in,
+              });
+          } catch (error) {
+              console.error(error);
+              res.status(500).json(error);
+          }
+      });
+      
 
 ////// the states routes   ////////////
 router.get("/vic", withAuth, async (req, res) => {
