@@ -11,10 +11,13 @@ We wanted to crowdsource the knowledge of thousands of gardeners from across Aus
 
 ## Table of Contents 
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+- [Green Thumbs](#green-thumbs)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)
 
 ## Installation
 
@@ -29,7 +32,7 @@ If successful, the program should then run in your local environment (for exampl
 
 ## Usage
 
-As a user, the website can be accessed on any web browser at the following URL: XXX
+As a user, the website can be accessed on any web browser at the following URL: [Green Thumbs](https://afternoon-shore-14413-3943e17402c9.herokuapp.com/)
 
 When you land on the homepage, you will see this page:
 
