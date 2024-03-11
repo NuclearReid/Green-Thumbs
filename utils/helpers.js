@@ -16,4 +16,11 @@ module.exports = {
     // Format date as MM/DD/YYYY
     return date.toLocaleDateString();
   },
+  blog_author: (userName) => {
+    if (userName) {
+      return userName;
+    } else {
+      return "Green Thumbs";
+    }
+  },
 };
